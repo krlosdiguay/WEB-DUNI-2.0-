@@ -1394,18 +1394,22 @@ a { text-decoration: none; color: inherit; }
 .cinema-chat-window {
   position: relative;
   z-index: 10;
-  width: 500px;
-  height: 540px;
-  background: linear-gradient(160deg, rgba(10,15,30,0.97), rgba(5,10,20,0.98));
-  border: 1px solid rgba(6,182,212,0.25);
-  border-radius: 24px;
-  backdrop-filter: blur(24px);
-  box-shadow: 0 0 0 1px rgba(255,255,255,0.03) inset, 0 30px 80px rgba(0,0,0,0.55), 0 0 120px -30px rgba(6,182,212,0.35);
+  width: 520px;
+  height: 560px;
+  background: linear-gradient(160deg, rgba(10,15,30,0.98), rgba(5,10,20,0.99));
+  border: 1px solid rgba(6,182,212,0.35);
+  border-radius: 28px;
+  backdrop-filter: blur(32px);
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.05) inset,
+              0 40px 100px rgba(0,0,0,0.6),
+              0 0 60px rgba(6,182,212,0.25),
+              0 0 120px -30px rgba(37,99,235,0.2);
   display: flex;
   flex-direction: column;
   overflow: hidden;
   animation: chatWindowReveal 0.7s cubic-bezier(0.34,1.56,0.64,1) both;
   margin-left: -70px;
+  transition: box-shadow 0.3s ease;
 }
 @keyframes chatWindowReveal {
   from { opacity: 0; transform: scale(0.82) translateY(30px); }
@@ -1478,10 +1482,90 @@ a { text-decoration: none; color: inherit; }
   border-radius: 4px 18px 18px 18px;
 }
 
-.cinema-input-bar { display: flex; gap: 8px; padding: 10px 14px; border-top: 1px solid rgba(255,255,255,0.05); background: rgba(5,10,20,0.6); flex-shrink: 0; }
-.cinema-input-wrap { flex: 1; position: relative; border-radius: 13px; padding: 1.5px; background: linear-gradient(135deg, rgba(255,255,255,0.07), rgba(255,255,255,0.02)); transition: background 0.3s; }
-.cinema-input-wrap:focus-within { background: linear-gradient(135deg, #2563EB, #06B6D4, #14B8A6); animation: borderShift 4s ease infinite; }
-.cinema-input-wrap input { width: 100%; background: #070D1A; border: none; border-radius: 12px; padding: 12px 16px; font-size: 13.5px; color: #fff; outline: none; font-family: inherit; }
-.cinema-input-wrap input::placeholder { color: rgba(255,255,255,0.22); }
-.cinema-send-btn { background: linear-gradient(135deg, #2563EB, #1D4ED8); color: #fff; border: none; width: 44px; height: 44px; border-radius: 12px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s; box-shadow: 0 6px 20px rgba(37,99,235,0.35); flex-shrink: 0; }
-.cinema-send-btn:hover { transform: translateY(-1px) scale(1.05); box-shadow: 0 10px 28px rgba(37,99,235,0.5); }
+.cinema-input-bar {
+  display: flex;
+  gap: 10px;
+  padding: 14px 16px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  background: linear-gradient(180deg, rgba(5,10,20,0.4), rgba(5,10,20,0.8));
+  flex-shrink: 0;
+  backdrop-filter: blur(8px);
+}
+
+.cinema-input-wrap {
+  flex: 1;
+  position: relative;
+  border-radius: 14px;
+  padding: 2px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.04));
+  transition: all 0.4s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.cinema-input-wrap:focus-within {
+  background: linear-gradient(135deg, rgba(37,99,235,0.6), rgba(6,182,212,0.4), rgba(20,184,166,0.3));
+  box-shadow: 0 0 0 1px rgba(37,99,235,0.5), 0 0 30px rgba(37,99,235,0.25), 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.cinema-input-wrap input {
+  width: 100%;
+  background: rgba(7,13,26,0.95);
+  border: none;
+  border-radius: 13px;
+  padding: 13px 18px;
+  font-size: 13.5px;
+  color: #fff;
+  outline: none;
+  font-family: inherit;
+  transition: all 0.3s ease;
+}
+
+.cinema-input-wrap input::placeholder {
+  color: rgba(255,255,255,0.25);
+  font-weight: 300;
+}
+
+.cinema-input-wrap input:focus {
+  background: rgba(7,13,26,0.98);
+  color: #fff;
+}
+
+.cinema-send-btn {
+  background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 50%, #06B6D4 100%);
+  color: #fff;
+  border: none;
+  width: 46px;
+  height: 46px;
+  border-radius: 13px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.34,1.56,0.64,1);
+  box-shadow: 0 8px 24px rgba(37,99,235,0.4), 0 0 0 0 rgba(37,99,235,0.2);
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.cinema-send-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.3), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.cinema-send-btn:hover {
+  transform: translateY(-2px) scale(1.08);
+  box-shadow: 0 12px 32px rgba(37,99,235,0.5), 0 0 0 8px rgba(37,99,235,0.15);
+}
+
+.cinema-send-btn:hover::before {
+  opacity: 1;
+}
+
+.cinema-send-btn:active {
+  transform: translateY(0) scale(0.96);
+}
