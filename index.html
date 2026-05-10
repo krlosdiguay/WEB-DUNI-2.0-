@@ -322,7 +322,7 @@
         <div class="hero-ring hero-ring-2"></div>
         <div class="hero-ring hero-ring-3"></div>
       </div>
-      <img src="orb-hero.png" alt="Duni AI Neural Core" class="hero-orb-img" />
+      <img src="orb-hero.png" alt="Duni AI" class="hero-orb-img" />
       <div class="hero-orb-glow"></div>
     </div>
   </div>
@@ -333,63 +333,84 @@
 </section>
 
 <!-- ================================================================ -->
-<!-- STATS BAR -->
+<!-- DUNI FEATURES — ANIMATED SCROLL -->
 <!-- ================================================================ -->
-<section class="bg-white border-b border-gray-100 py-14">
+<section class="bg-white py-20 overflow-hidden">
   <div class="max-w-[1440px] mx-auto px-20">
-    <div class="grid grid-cols-4 gap-8 text-center">
+    <div class="mb-14 text-center reveal">
+      <div class="text-[11px] font-semibold tracking-[0.2em] text-[#2563EB] uppercase mb-4">Lo que Duni hace</div>
+      <h2 class="text-[clamp(28px,3.8vw,52px)] font-light text-[#0A0F1E] tracking-[-0.02em]">Funciones inteligentes que trabajan por ti</h2>
+    </div>
 
-      <div class="reveal">
-        <div class="flex justify-center mb-4">
-          <svg class="w-12 h-12 text-[#2563EB]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <circle cx="12" cy="12" r="1"/>
-            <circle cx="19" cy="5" r="1"/>
-            <circle cx="5" cy="19" r="1"/>
-            <circle cx="19" cy="19" r="1"/>
-            <circle cx="5" cy="5" r="1"/>
-            <line x1="12" y1="12" x2="19" y2="5"/>
-            <line x1="12" y1="12" x2="5" y2="19"/>
-            <line x1="12" y1="12" x2="19" y2="19"/>
-            <line x1="12" y1="12" x2="5" y2="5"/>
-          </svg>
-        </div>
-        <div class="text-[15px] font-semibold text-[#0A0F1E] tracking-wide">Asistentes con IA</div>
-        <div class="text-[12px] text-gray-500 mt-1">Powered by advanced AI</div>
-      </div>
-      <div class="reveal">
-        <div class="flex justify-center mb-4">
-          <svg class="w-12 h-12 text-[#06B6D4]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-            <circle cx="9" cy="10" r="1" fill="currentColor"/>
-            <circle cx="12" cy="10" r="1" fill="currentColor"/>
-            <circle cx="15" cy="10" r="1" fill="currentColor"/>
-          </svg>
-        </div>
-        <div class="text-[15px] font-semibold text-[#0A0F1E] tracking-wide">Recepcionistas Inteligentes</div>
-        <div class="text-[12px] text-gray-500 mt-1">Atiende pacientes 24/7</div>
-      </div>
-      <div class="reveal">
-        <div class="flex justify-center mb-4">
-          <svg class="w-12 h-12 text-[#14B8A6]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-            <circle cx="12" cy="7" r="4"/>
-          </svg>
-        </div>
-        <div class="text-[15px] font-semibold text-[#0A0F1E] tracking-wide">Asistentes Personales</div>
-        <div class="text-[12px] text-gray-500 mt-1">Para tu práctica odontológica</div>
-      </div>
-      <div class="reveal">
-        <div class="flex justify-center mb-4">
-          <svg class="w-12 h-12 text-[#A78BFA]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <circle cx="12" cy="12" r="1" fill="currentColor"/>
-            <path d="M12 7V3M12 21v-4M7 12H3M21 12h-4"/>
-            <path d="M8.46 3.54l-2.83 2.83M18.37 18.37l-2.83 2.83M3.54 8.46l2.83-2.83M18.37 5.63l2.83-2.83"/>
-          </svg>
-        </div>
-        <div class="text-[15px] font-semibold text-[#0A0F1E] tracking-wide">Automatización Total</div>
-        <div class="text-[12px] text-gray-500 mt-1">Agenda, responde, fideliza</div>
+    <div class="relative h-48 overflow-hidden">
+      <style>
+        @keyframes scrollLeft {
+          0% { transform: translateX(100%); opacity: 0; }
+          10% { opacity: 1; }
+          90% { opacity: 1; }
+          100% { transform: translateX(-100%); opacity: 0; }
+        }
+        .duni-feature {
+          position: absolute;
+          width: 320px;
+          padding: 24px;
+          background: linear-gradient(135deg, #f0f9ff, #f0f7ff);
+          border: 1px solid #e0f2fe;
+          border-radius: 16px;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+          animation: scrollLeft 12s ease-in-out infinite;
+        }
+        .duni-feature:nth-child(1) { animation-delay: 0s; left: 0; }
+        .duni-feature:nth-child(2) { animation-delay: 3s; left: 0; }
+        .duni-feature:nth-child(3) { animation-delay: 6s; left: 0; }
+        .duni-feature:nth-child(4) { animation-delay: 9s; left: 0; }
+        .duni-feature:hover {
+          background: linear-gradient(135deg, #e0f2fe, #cffafe);
+          border-color: #06b6d4;
+          transform: scale(1.02);
+          transition: all 0.3s ease;
+        }
+        .feature-icon {
+          width: 48px;
+          height: 48px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: linear-gradient(135deg, #2563EB, #1D4ED8);
+          border-radius: 12px;
+          margin-bottom: 12px;
+          color: #fff;
+          font-size: 24px;
+        }
+        .feature-icon.chat { background: linear-gradient(135deg, #06B6D4, #0891B2); }
+        .feature-icon.schedule { background: linear-gradient(135deg, #14B8A6, #0D9488); }
+        .feature-icon.analyze { background: linear-gradient(135deg, #8B5CF6, #7C3AED); }
+        .feature-icon.patient { background: linear-gradient(135deg, #EC4899, #DB2777); }
+      </style>
+
+      <div class="duni-feature">
+        <div class="feature-icon chat">💬</div>
+        <h3 class="text-[16px] font-semibold text-[#0A0F1E] mb-2">Responde Mensajes</h3>
+        <p class="text-[13px] text-gray-600">Contesta automáticamente por WhatsApp 24/7 sin tu intervención</p>
       </div>
 
+      <div class="duni-feature">
+        <div class="feature-icon schedule">📅</div>
+        <h3 class="text-[16px] font-semibold text-[#0A0F1E] mb-2">Agenda Inteligente</h3>
+        <p class="text-[13px] text-gray-600">Llena huecos y optimiza tu agenda automáticamente</p>
+      </div>
+
+      <div class="duni-feature">
+        <div class="feature-icon analyze">📊</div>
+        <h3 class="text-[16px] font-semibold text-[#0A0F1E] mb-2">Analiza Datos</h3>
+        <p class="text-[13px] text-gray-600">Obtén insights en tiempo real de tu práctica</p>
+      </div>
+
+      <div class="duni-feature">
+        <div class="feature-icon patient">👥</div>
+        <h3 class="text-[16px] font-semibold text-[#0A0F1E] mb-2">Fideliza Pacientes</h3>
+        <p class="text-[13px] text-gray-600">Retén pacientes con seguimiento automático</p>
+      </div>
     </div>
   </div>
 </section>
