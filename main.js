@@ -477,7 +477,14 @@ function cinemaAddMsg(html, type) {
   } else {
     div.innerHTML = `<div class="cmsg-bubble"><p>${html}</p></div>`;
   }
+  div.style.opacity = '0';
+  div.style.transform = type === 'ai' ? 'translateX(-10px)' : 'translateX(10px)';
   msgs.appendChild(div);
+  requestAnimationFrame(() => {
+    div.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+    div.style.opacity = '1';
+    div.style.transform = 'translateX(0)';
+  });
   msgs.scrollTop = msgs.scrollHeight;
   return div;
 }
