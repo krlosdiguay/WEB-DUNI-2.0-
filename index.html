@@ -120,12 +120,6 @@
       <circle cx="16" cy="16" r="2" fill="#67E8F9"/>
     </symbol>
 
-    <!-- Duni Logo Text -->
-    <symbol id="duniLogo" viewBox="0 0 120 80">
-      <text x="0" y="60" font-family="Inter, sans-serif" font-size="52" font-weight="700" fill="#4B7BA7" letter-spacing="-2">Duni</text>
-      <circle cx="105" cy="25" r="6" fill="#4B7BA7"/>
-    </symbol>
-
     <!-- TECH ICONS -->
     <!-- AGENT: Conversational waves emanating -->
     <symbol id="iconAgent" viewBox="0 0 32 32">
@@ -321,14 +315,14 @@
       </div>
     </div>
 
-    <!-- Hero visual: Hyper-realistic AI Orb -->
+    <!-- Hero visual: SVG Orb -->
     <div class="hero-orb-container reveal-hero" style="animation-delay:0.15s">
       <div class="hero-orb-rings">
         <div class="hero-ring hero-ring-1"></div>
         <div class="hero-ring hero-ring-2"></div>
         <div class="hero-ring hero-ring-3"></div>
       </div>
-      <img src="orb-hero.png" alt="Duni" class="hero-orb-img" />
+      <svg class="hero-orb-svg" viewBox="0 0 200 200" style="width:280px;height:280px"><use href="#duniOrbLarge"/></svg>
       <div class="hero-orb-glow"></div>
     </div>
   </div>
@@ -339,141 +333,33 @@
 </section>
 
 <!-- ================================================================ -->
-<!-- DUNI FEATURES — ANIMATED SCROLL -->
+<!-- STATS BAR -->
 <!-- ================================================================ -->
-<section class="bg-white py-20 overflow-hidden">
+<section class="bg-white border-b border-gray-100 py-14">
   <div class="max-w-[1440px] mx-auto px-20">
-    <div class="mb-14 text-center reveal">
-      <div class="text-[11px] font-semibold tracking-[0.2em] text-[#2563EB] uppercase mb-4">Lo que Duni hace</div>
-      <h2 class="text-[clamp(28px,3.8vw,52px)] font-light text-[#0A0F1E] tracking-[-0.02em]">Funciones inteligentes que trabajan por ti</h2>
-    </div>
+    <div class="grid grid-cols-4 gap-8 text-center">
 
-    <div class="relative h-48 overflow-hidden">
-      <style>
-        @keyframes scrollLeft {
-          0% { transform: translateX(100%); opacity: 0; }
-          10% { opacity: 1; }
-          90% { opacity: 1; }
-          100% { transform: translateX(-100%); opacity: 0; }
-        }
-        .duni-feature {
-          position: absolute;
-          width: 320px;
-          padding: 24px;
-          background: linear-gradient(135deg, #f0f9ff, #f0f7ff);
-          border: 1px solid #e0f2fe;
-          border-radius: 16px;
-          box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-          animation: scrollLeft 12s ease-in-out infinite;
-        }
-        .duni-feature:nth-child(1) { animation-delay: 0s; left: 0; }
-        .duni-feature:nth-child(2) { animation-delay: 3s; left: 0; }
-        .duni-feature:nth-child(3) { animation-delay: 6s; left: 0; }
-        .duni-feature:nth-child(4) { animation-delay: 9s; left: 0; }
-        .duni-feature:hover {
-          background: linear-gradient(135deg, #e0f2fe, #cffafe);
-          border-color: #06b6d4;
-          transform: scale(1.02);
-          transition: all 0.3s ease;
-        }
-        .feature-icon {
-          width: 48px;
-          height: 48px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          background: linear-gradient(135deg, #2563EB, #1D4ED8);
-          border-radius: 12px;
-          margin-bottom: 12px;
-          color: #fff;
-          font-size: 24px;
-        }
-        .feature-icon.chat { background: linear-gradient(135deg, #06B6D4, #0891B2); }
-        .feature-icon.schedule { background: linear-gradient(135deg, #14B8A6, #0D9488); }
-        .feature-icon.analyze { background: linear-gradient(135deg, #8B5CF6, #7C3AED); }
-        .feature-icon.patient { background: linear-gradient(135deg, #EC4899, #DB2777); }
-      </style>
-
-      <div class="duni-feature">
-        <div class="feature-icon chat">
-          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-8 h-8">
-            <defs>
-              <linearGradient id="chatGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" style="stop-color:#fff;stop-opacity:1" />
-                <stop offset="100%" style="stop-color:#e0f2fe;stop-opacity:1" />
-              </linearGradient>
-            </defs>
-            <path d="M50 10H14C10.686 10 8 12.686 8 16v28c0 3.314 2.686 6 6 6h22l12 8v-8h2c3.314 0 6-2.686 6-6V16c0-3.314-2.686-6-6-6z" fill="url(#chatGrad)" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-            <circle cx="22" cy="28" r="3" fill="currentColor"/>
-            <circle cx="32" cy="28" r="3" fill="currentColor"/>
-            <circle cx="42" cy="28" r="3" fill="currentColor"/>
-          </svg>
-        </div>
-        <h3 class="text-[16px] font-semibold text-[#0A0F1E] mb-2">Responde Mensajes</h3>
-        <p class="text-[13px] text-gray-600">Contesta automáticamente por WhatsApp 24/7 sin tu intervención</p>
+      <div class="reveal">
+        <div class="text-[48px] font-bold text-[#0A0F1E] tracking-tight leading-none">🤖</div>
+        <div class="text-[15px] font-semibold text-[#0A0F1E] mt-3 tracking-wide">Asistentes con IA</div>
+        <div class="text-[12px] text-gray-500 mt-1">Powered by advanced AI</div>
+      </div>
+      <div class="reveal">
+        <div class="text-[48px] font-bold text-[#0A0F1E] tracking-tight leading-none">📞</div>
+        <div class="text-[15px] font-semibold text-[#0A0F1E] mt-3 tracking-wide">Recepcionistas Inteligentes</div>
+        <div class="text-[12px] text-gray-500 mt-1">Atiende pacientes 24/7</div>
+      </div>
+      <div class="reveal">
+        <div class="text-[48px] font-bold text-[#0A0F1E] tracking-tight leading-none">👥</div>
+        <div class="text-[15px] font-semibold text-[#0A0F1E] mt-3 tracking-wide">Asistentes Personales</div>
+        <div class="text-[12px] text-gray-500 mt-1">Para tu práctica odontológica</div>
+      </div>
+      <div class="reveal">
+        <div class="text-[48px] font-bold text-[#0A0F1E] tracking-tight leading-none">⚡</div>
+        <div class="text-[15px] font-semibold text-[#0A0F1E] mt-3 tracking-wide">Automatización Total</div>
+        <div class="text-[12px] text-gray-500 mt-1">Agenda, responde, fideliza</div>
       </div>
 
-      <div class="duni-feature">
-        <div class="feature-icon schedule">
-          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-8 h-8">
-            <defs>
-              <linearGradient id="scheduleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" style="stop-color:#fff;stop-opacity:1" />
-                <stop offset="100%" style="stop-color:#ccf7f4;stop-opacity:1" />
-              </linearGradient>
-            </defs>
-            <rect x="10" y="12" width="44" height="42" rx="3" fill="url(#scheduleGrad)" stroke="currentColor" stroke-width="2"/>
-            <line x1="50" y1="8" x2="50" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            <line x1="14" y1="8" x2="14" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            <line x1="10" y1="24" x2="54" y2="24" stroke="currentColor" stroke-width="1.5" stroke-opacity="0.5"/>
-            <circle cx="24" cy="36" r="3" fill="currentColor"/>
-            <circle cx="40" cy="36" r="3" fill="currentColor"/>
-            <circle cx="32" cy="48" r="3" fill="currentColor"/>
-          </svg>
-        </div>
-        <h3 class="text-[16px] font-semibold text-[#0A0F1E] mb-2">Agenda Inteligente</h3>
-        <p class="text-[13px] text-gray-600">Llena huecos y optimiza tu agenda automáticamente</p>
-      </div>
-
-      <div class="duni-feature">
-        <div class="feature-icon analyze">
-          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-8 h-8">
-            <defs>
-              <linearGradient id="analyzeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" style="stop-color:#fff;stop-opacity:1" />
-                <stop offset="100%" style="stop-color:#f3e8ff;stop-opacity:1" />
-              </linearGradient>
-            </defs>
-            <rect x="8" y="44" width="8" height="14" rx="1" fill="url(#analyzeGrad)" stroke="currentColor" stroke-width="1.5"/>
-            <rect x="20" y="32" width="8" height="26" rx="1" fill="url(#analyzeGrad)" stroke="currentColor" stroke-width="1.5"/>
-            <rect x="32" y="20" width="8" height="38" rx="1" fill="url(#analyzeGrad)" stroke="currentColor" stroke-width="1.5"/>
-            <rect x="44" y="12" width="8" height="46" rx="1" fill="url(#analyzeGrad)" stroke="currentColor" stroke-width="1.5"/>
-            <polyline points="8,44 20,32 32,20 44,12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-opacity="0.6"/>
-          </svg>
-        </div>
-        <h3 class="text-[16px] font-semibold text-[#0A0F1E] mb-2">Analiza Datos</h3>
-        <p class="text-[13px] text-gray-600">Obtén insights en tiempo real de tu práctica</p>
-      </div>
-
-      <div class="duni-feature">
-        <div class="feature-icon patient">
-          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-8 h-8">
-            <defs>
-              <linearGradient id="patientGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" style="stop-color:#fff;stop-opacity:1" />
-                <stop offset="100%" style="stop-color:#fce7f3;stop-opacity:1" />
-              </linearGradient>
-            </defs>
-            <circle cx="20" cy="20" r="8" fill="url(#patientGrad)" stroke="currentColor" stroke-width="2"/>
-            <path d="M10 40c0-5.523 4.477-10 10-10s10 4.477 10 10v8H10v-8z" fill="url(#patientGrad)" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-            <circle cx="48" cy="20" r="8" fill="url(#patientGrad)" stroke="currentColor" stroke-width="2" opacity="0.7"/>
-            <path d="M38 40c0-5.523 4.477-10 10-10s10 4.477 10 10v8H38v-8z" fill="url(#patientGrad)" stroke="currentColor" stroke-width="2" stroke-linejoin="round" opacity="0.7"/>
-            <line x1="32" y1="22" x2="36" y2="22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
-          </svg>
-        </div>
-        <h3 class="text-[16px] font-semibold text-[#0A0F1E] mb-2">Fideliza Pacientes</h3>
-        <p class="text-[13px] text-gray-600">Retén pacientes con seguimiento automático</p>
-      </div>
     </div>
   </div>
 </section>
@@ -564,7 +450,7 @@
           <div class="bg-[#1F2C34] px-4 py-3 flex items-center gap-3">
             <div class="mini-orb"><svg width="36" height="36"><use href="#duniOrbMini"/></svg></div>
             <div>
-              <div class="text-white text-[14px] font-semibold">Duni</div>
+              <div class="text-white text-[14px] font-semibold">Duni AI</div>
               <div class="text-white/50 text-[11px] flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-[#25D366] inline-block"></span>en línea</div>
             </div>
           </div>
@@ -641,265 +527,99 @@
       <p class="text-[16px] text-white/35 font-light max-w-[620px] mx-auto">Duni procesa información clínica en tiempo real, comprende el contexto de tu práctica y toma decisiones inteligentes automáticamente.</p>
     </div>
 
-    <!-- DUNI WIDGET — Immersive AI Experience -->
-    <div class="dw-hub reveal" id="duniCinemaHub">
+    <!-- DUNI CINEMATIC CHAT — Click-to-deploy experience -->
+    <div class="duni-cinema-hub reveal" id="duniCinemaHub">
 
-      <!-- STATE 1: Orb dormant -->
-      <div class="dw-stage" id="cinemaOrbStage">
-
-        <!-- Outer ambient field -->
-        <div class="dw-field">
-          <div class="dw-field-ring dw-fr1"></div>
-          <div class="dw-field-ring dw-fr2"></div>
-          <div class="dw-field-ring dw-fr3"></div>
-          <div class="dw-field-ring dw-fr4"></div>
+      <!-- State 1: Orb dormant — waiting to be activated -->
+      <div class="cinema-orb-stage" id="cinemaOrbStage">
+        <!-- Ambient rings -->
+        <div class="cinema-rings">
+          <div class="cinema-ring cr-1"></div>
+          <div class="cinema-ring cr-2"></div>
+          <div class="cinema-ring cr-3"></div>
         </div>
-
-        <!-- Central orb -->
-        <div class="dw-orb-wrap" id="cinemaOrbWrap" onclick="deployDuniChat()">
-          <!-- SVG orb — no image needed -->
-          <svg class="dw-orb-svg" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <radialGradient id="dwCoreA" cx="38%" cy="32%" r="68%">
-                <stop offset="0%" stop-color="#A5F3FC"/>
-                <stop offset="30%" stop-color="#22D3EE"/>
-                <stop offset="65%" stop-color="#2563EB"/>
-                <stop offset="100%" stop-color="#0F172A"/>
-              </radialGradient>
-              <radialGradient id="dwGlowA" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stop-color="#06B6D4" stop-opacity="0.7"/>
-                <stop offset="55%" stop-color="#2563EB" stop-opacity="0.2"/>
-                <stop offset="100%" stop-color="#2563EB" stop-opacity="0"/>
-              </radialGradient>
-              <filter id="dwSoft">
-                <feGaussianBlur stdDeviation="3"/>
-              </filter>
-              <filter id="dwGlare">
-                <feGaussianBlur stdDeviation="1.5"/>
-              </filter>
-            </defs>
-            <!-- Glow halo -->
-            <circle cx="150" cy="150" r="140" fill="url(#dwGlowA)" filter="url(#dwSoft)"/>
-            <!-- Core sphere -->
-            <circle cx="150" cy="150" r="100" fill="url(#dwCoreA)"/>
-            <!-- Specular highlight main -->
-            <ellipse cx="118" cy="112" rx="28" ry="18" fill="#fff" opacity="0.45" filter="url(#dwGlare)"/>
-            <!-- Specular pinpoint -->
-            <ellipse cx="125" cy="118" rx="10" ry="6" fill="#fff" opacity="0.75"/>
-            <!-- Rim light bottom -->
-            <ellipse cx="175" cy="215" rx="22" ry="10" fill="#67E8F9" opacity="0.18" filter="url(#dwSoft)"/>
-            <!-- Orbital ring 1 -->
-            <ellipse cx="150" cy="150" rx="130" ry="26" fill="none" stroke="url(#dwRingA)" stroke-width="1" opacity="0.5" class="dw-ring-spin-1"/>
-            <!-- Orbital ring 2 -->
-            <ellipse cx="150" cy="150" rx="26" ry="130" fill="none" stroke="#3B82F6" stroke-width="0.8" opacity="0.3" stroke-dasharray="6 10" class="dw-ring-spin-2"/>
-            <!-- Particle dots -->
-            <circle cx="150" cy="22" r="3.5" fill="#67E8F9" class="dw-particle-1"/>
-            <circle cx="278" cy="150" r="2.5" fill="#A78BFA" class="dw-particle-2"/>
-            <circle cx="150" cy="278" r="3" fill="#22D3EE" class="dw-particle-3"/>
-            <circle cx="22" cy="150" r="2" fill="#60A5FA" class="dw-particle-4"/>
-            <defs>
-              <linearGradient id="dwRingA" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stop-color="#06B6D4" stop-opacity="0"/>
-                <stop offset="50%" stop-color="#67E8F9" stop-opacity="1"/>
-                <stop offset="100%" stop-color="#06B6D4" stop-opacity="0"/>
-              </linearGradient>
-            </defs>
-          </svg>
-
-          <!-- Click ripple -->
-          <div class="dw-ripple"></div>
-          <div class="dw-ripple dw-ripple-2"></div>
-
-          <!-- CTA label -->
-          <div class="dw-cta">
-            <div class="dw-cta-inner">
-              <span class="dw-cta-dot"></span>
-              <span>Activar Duni</span>
-            </div>
+        <!-- SVG Orb -->
+        <div class="cinema-orb-wrap" id="cinemaOrbWrap" onclick="deployDuniChat()">
+          <svg class="cinema-orb-svg" viewBox="0 0 200 200" style="width:240px;height:240px"><use href="#duniOrbLarge"/></svg>
+          <div class="cinema-orb-glow"></div>
+          <div class="cinema-orb-pulse-ring"></div>
+          <div class="cinema-orb-label">
+            <span>Toca para hablar con Duni</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15m0 0l6.75 6.75M4.5 12l6.75-6.75"/></svg>
           </div>
         </div>
-
-        <!-- Floating stats -->
-        <div class="dw-stat dw-stat-a">
-          <div class="dw-stat-icon">
-            <svg viewBox="0 0 16 16" fill="none" class="w-3 h-3"><path d="M8 3v5l3 2" stroke="#22D3EE" stroke-width="1.5" stroke-linecap="round"/><circle cx="8" cy="8" r="6.5" stroke="#22D3EE" stroke-width="1"/></svg>
-          </div>
-          <div>
-            <div class="dw-stat-val">24/7</div>
-            <div class="dw-stat-lbl">Disponible</div>
-          </div>
+        <!-- Stats floating around the orb -->
+        <div class="cinema-stat cinema-stat-1">
+          <div class="stat-dot"></div>
+          <span class="stat-val">38%</span>
+          <span class="stat-lbl">más reagendamientos</span>
         </div>
-
-        <div class="dw-stat dw-stat-b">
-          <div class="dw-stat-icon">
-            <svg viewBox="0 0 16 16" fill="none" class="w-3 h-3"><path d="M2 11l4-4 3 3 5-6" stroke="#A78BFA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <div>
-            <div class="dw-stat-val">+38%</div>
-            <div class="dw-stat-lbl">Reagendamientos</div>
-          </div>
+        <div class="cinema-stat cinema-stat-2">
+          <div class="stat-dot stat-dot-teal"></div>
+          <span class="stat-val">24/7</span>
+          <span class="stat-lbl">disponibilidad</span>
         </div>
-
-        <div class="dw-stat dw-stat-c">
-          <div class="dw-stat-icon">
-            <svg viewBox="0 0 16 16" fill="none" class="w-3 h-3"><circle cx="8" cy="8" r="3" fill="#14B8A6"/><circle cx="8" cy="8" r="6.5" stroke="#14B8A6" stroke-width="1" stroke-dasharray="3 3"/></svg>
-          </div>
-          <div>
-            <div class="dw-stat-val">3 min</div>
-            <div class="dw-stat-lbl">Setup</div>
-          </div>
+        <div class="cinema-stat cinema-stat-3">
+          <div class="stat-dot stat-dot-purple"></div>
+          <span class="stat-val">3 min</span>
+          <span class="stat-lbl">configuración</span>
         </div>
+      </div>
 
-        <div class="dw-stat dw-stat-d">
-          <div class="dw-stat-icon">
-            <svg viewBox="0 0 16 16" fill="none" class="w-3 h-3"><rect x="2" y="6" width="3" height="8" rx="1" fill="#F59E0B"/><rect x="6.5" y="3" width="3" height="11" rx="1" fill="#F59E0B"/><rect x="11" y="1" width="3" height="13" rx="1" fill="#F59E0B"/></svg>
-          </div>
-          <div>
-            <div class="dw-stat-val">$640</div>
-            <div class="dw-stat-lbl">Hoy recuperado</div>
-          </div>
-        </div>
-
-      </div><!-- /dw-stage -->
-
-      <!-- STATE 2: Chat deployed -->
-      <div class="dw-chat-panel" id="cinemaChatPanel">
-
-        <!-- Background orb ghost -->
-        <div class="dw-ghost-orb">
-          <svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <radialGradient id="dwGhostGrad" cx="38%" cy="32%" r="68%">
-                <stop offset="0%" stop-color="#A5F3FC"/>
-                <stop offset="30%" stop-color="#22D3EE"/>
-                <stop offset="65%" stop-color="#2563EB"/>
-                <stop offset="100%" stop-color="#0F172A"/>
-              </radialGradient>
-            </defs>
-            <circle cx="150" cy="150" r="140" fill="rgba(6,182,212,0.08)"/>
-            <circle cx="150" cy="150" r="100" fill="url(#dwGhostGrad)" opacity="0.5"/>
-            <ellipse cx="118" cy="112" rx="28" ry="18" fill="#fff" opacity="0.2"/>
-          </svg>
+      <!-- State 2: Chat deployed — cinematic expansion -->
+      <div class="cinema-chat-panel" id="cinemaChatPanel">
+        <!-- Background orb (stays visible behind chat) -->
+        <div class="panel-orb-bg">
+          <svg class="panel-orb-svg" viewBox="0 0 200 200" style="width:280px;height:280px"><use href="#duniOrbLarge"/></svg>
+          <div class="panel-orb-glow"></div>
         </div>
 
         <!-- Chat window -->
-        <div class="dw-window" id="cinemaChatWindow">
-
-          <!-- Top chrome bar with scan line effect -->
-          <div class="dw-chrome">
-            <div class="dw-chrome-scan"></div>
-            <div class="dw-chrome-left">
-              <div class="dw-avatar">
-                <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-                  <defs>
-                    <radialGradient id="avGrad" cx="38%" cy="32%" r="68%">
-                      <stop offset="0%" stop-color="#A5F3FC"/>
-                      <stop offset="50%" stop-color="#2563EB"/>
-                      <stop offset="100%" stop-color="#0F172A"/>
-                    </radialGradient>
-                  </defs>
-                  <circle cx="20" cy="20" r="19" fill="url(#avGrad)"/>
-                  <ellipse cx="15" cy="14" rx="5" ry="3.5" fill="#fff" opacity="0.5"/>
-                </svg>
-                <span class="dw-av-live"></span>
-              </div>
-              <div class="dw-chrome-info">
-                <div class="dw-chrome-name">
-                  <span class="dw-name-duni">Duni</span>
-                  <span class="dw-name-badge">IA</span>
-                </div>
-                <div class="dw-chrome-status">
-                  <span class="dw-status-dot"></span>
-                  <span>Procesando tu práctica · en vivo</span>
-                </div>
-              </div>
+        <div class="cinema-chat-window" id="cinemaChatWindow">
+          <!-- Header bar -->
+          <div class="cinema-chat-header">
+            <div class="cci-avatar">
+              <svg viewBox="0 0 40 40" style="width:32px;height:32px"><use href="#duniOrbMini"/></svg>
+              <span class="cci-pulse"></span>
             </div>
-            <div class="dw-chrome-right">
-              <div class="dw-signal-bars">
-                <span></span><span></span><span></span><span></span>
-              </div>
-              <button class="dw-close" onclick="closeDuniChat()">
-                <svg viewBox="0 0 20 20" fill="none" class="w-4 h-4"><path d="M5 5l10 10M15 5L5 15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-              </button>
+            <div class="cci-info">
+              <div class="cci-name">DUNI <span>AI</span></div>
+              <div class="cci-status"><span class="cci-dot"></span>Operando en tiempo real</div>
             </div>
+            <button class="cci-close" onclick="closeDuniChat()" title="Cerrar">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
           </div>
 
-          <!-- Context strip -->
-          <div class="dw-context-strip">
-            <div class="dw-ctx-item">
-              <svg viewBox="0 0 14 14" fill="none" class="w-3 h-3"><rect x="1" y="2" width="12" height="11" rx="1.5" stroke="#06B6D4" stroke-width="1"/><path d="M4 0v3M10 0v3M1 5h12" stroke="#06B6D4" stroke-width="1" stroke-linecap="round"/></svg>
-              <span>8 citas hoy</span>
-            </div>
-            <div class="dw-ctx-sep"></div>
-            <div class="dw-ctx-item">
-              <svg viewBox="0 0 14 14" fill="none" class="w-3 h-3"><circle cx="7" cy="5" r="3" stroke="#14B8A6" stroke-width="1"/><path d="M2 13c0-2.76 2.24-5 5-5s5 2.24 5 5" stroke="#14B8A6" stroke-width="1" stroke-linecap="round"/></svg>
-              <span>847 pacientes</span>
-            </div>
-            <div class="dw-ctx-sep"></div>
-            <div class="dw-ctx-item">
-              <svg viewBox="0 0 14 14" fill="none" class="w-3 h-3"><path d="M1 10l3.5-4 3 3L11 4l2 2" stroke="#A78BFA" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span>$2,840 / mes</span>
-            </div>
-          </div>
-
-          <!-- Messages area -->
-          <div id="cinemaMsgs" class="dw-msgs">
-            <div class="dw-msg dw-msg-ai">
-              <div class="dw-msg-av">
-                <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                  <defs>
-                    <radialGradient id="msgAvGrad" cx="38%" cy="32%" r="68%">
-                      <stop offset="0%" stop-color="#A5F3FC"/>
-                      <stop offset="50%" stop-color="#2563EB"/>
-                      <stop offset="100%" stop-color="#0F172A"/>
-                    </radialGradient>
-                  </defs>
-                  <circle cx="16" cy="16" r="15" fill="url(#msgAvGrad)"/>
-                  <ellipse cx="12" cy="11" rx="4" ry="2.5" fill="#fff" opacity="0.45"/>
-                </svg>
-              </div>
-              <div class="dw-msg-body">
-                <div class="dw-msg-bubble">
-                  <p>¡Hola, Doctor/a! Soy <strong>Duni</strong>. Tengo acceso en tiempo real a tu agenda, pacientes y métricas. ¿En qué te ayudo ahora?</p>
+          <!-- Messages -->
+          <div id="cinemaMsgs" class="cinema-msgs">
+            <div class="cmsg cmsg-ai">
+              <div class="cmsg-avatar"><svg viewBox="0 0 40 40" style="width:28px;height:28px"><use href="#duniOrbMini"/></svg></div>
+              <div class="cmsg-bubble">
+                <p>¡Hola, Doctor/a! Soy <strong>Duni</strong>, tu asistente de IA odontológica. Tengo acceso a tu agenda, pacientes y métricas. ¿Cómo puedo ayudarte hoy?</p>
+                <div class="cmsg-chips">
+                  <button onclick="cinemaSuggest(this)" class="cmsg-chip">¿Qué pasó hoy?</button>
+                  <button onclick="cinemaSuggest(this)" class="cmsg-chip">Análisis de ingresos</button>
+                  <button onclick="cinemaSuggest(this)" class="cmsg-chip">Cancelaciones</button>
+                  <button onclick="cinemaSuggest(this)" class="cmsg-chip">Próximas citas</button>
                 </div>
-                <div class="dw-chips">
-                  <button onclick="cinemaSuggest(this)" class="dw-chip">¿Qué pasó hoy?</button>
-                  <button onclick="cinemaSuggest(this)" class="dw-chip">Ingresos del mes</button>
-                  <button onclick="cinemaSuggest(this)" class="dw-chip">Cancelaciones</button>
-                  <button onclick="cinemaSuggest(this)" class="dw-chip">Próximas citas</button>
-                </div>
-                <div class="dw-msg-time">ahora</div>
               </div>
             </div>
           </div>
 
-          <!-- Input zone -->
-          <div class="dw-input-zone">
-            <div class="dw-input-glow-track">
-              <div class="dw-input-row">
-                <input
-                  id="cinemaInput"
-                  type="text"
-                  class="dw-input"
-                  placeholder="Pregúntale algo a Duni..."
-                  onkeydown="if(event.key==='Enter') cinemaSubmit()"
-                  autocomplete="off"
-                />
-                <button onclick="cinemaSubmit()" class="dw-send" id="cinemaSendBtn">
-                  <svg viewBox="0 0 24 24" fill="none" class="w-5 h-5">
-                    <path d="M22 2L11 13" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M22 2L15 22l-4-9-9-4 20-7z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </button>
-              </div>
+          <!-- Input -->
+          <div class="cinema-input-bar">
+            <div class="cinema-input-wrap">
+              <input id="cinemaInput" type="text" placeholder="Escribe tu consulta a Duni..." onkeydown="if(event.key==='Enter') cinemaSubmit()" autocomplete="off"/>
             </div>
-            <div class="dw-input-hint">Presiona Enter para enviar · Potenciado por Duni IA</div>
+            <button onclick="cinemaSubmit()" class="cinema-send-btn" id="cinemaSendBtn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"/></svg>
+            </button>
           </div>
+        </div>
+      </div>
 
-        </div><!-- /dw-window -->
-      </div><!-- /dw-chat-panel -->
-
-    </div><!-- /dw-hub -->
+    </div><!-- /duni-cinema-hub -->
 
     <!-- Old hidden containers for backward compat (no visual) -->
     <div style="display:none">
