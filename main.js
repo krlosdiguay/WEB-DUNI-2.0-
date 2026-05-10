@@ -419,6 +419,8 @@ function cinemFindResponse(text) {
   return `Estoy procesando tu consulta sobre <strong>"${text}"</strong>...\n\nEn tu práctica real tendría acceso completo a tus datos para darte información precisa. ¿Quieres que te cuente sobre agenda, ingresos o cancelaciones de hoy?`;
 }
 
+const DW_AV_SVG = `<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style="width:32px;height:32px;filter:drop-shadow(0 0 8px rgba(6,182,212,0.5))"><defs><radialGradient id="msgAvGradDyn" cx="38%" cy="32%" r="68%"><stop offset="0%" stop-color="#A5F3FC"/><stop offset="50%" stop-color="#2563EB"/><stop offset="100%" stop-color="#0F172A"/></radialGradient></defs><circle cx="16" cy="16" r="15" fill="url(#msgAvGradDyn)"/><ellipse cx="12" cy="11" rx="4" ry="2.5" fill="#fff" opacity="0.45"/></svg>`;
+
 function deployDuniChat() {
   if (cinemaChatOpen) return;
   cinemaChatOpen = true;
@@ -426,17 +428,15 @@ function deployDuniChat() {
   const stage = document.getElementById('cinemaOrbStage');
   const panel = document.getElementById('cinemaChatPanel');
 
-  // Cinematic transition: orb shrinks and fades
-  stage.classList.add('hidden-stage');
+  stage.classList.add('dw-hidden');
 
   setTimeout(() => {
     panel.classList.add('panel-open');
-    // Focus input after animation
     setTimeout(() => {
       const inp = document.getElementById('cinemaInput');
       if (inp) inp.focus();
     }, 700);
-  }, 300);
+  }, 320);
 }
 
 function closeDuniChat() {
@@ -446,21 +446,21 @@ function closeDuniChat() {
 
   panel.classList.remove('panel-open');
   setTimeout(() => {
-    stage.classList.remove('hidden-stage');
+    stage.classList.remove('dw-hidden');
     cinemaChatOpen = false;
-    // Reset messages
     const msgs = document.getElementById('cinemaMsgs');
     if (msgs) {
-      msgs.innerHTML = `<div class="cmsg cmsg-ai">
-        <div class="cmsg-avatar"><img src="orb-hero.png" alt="Duni"/></div>
-        <div class="cmsg-bubble">
-          <p>¡Hola, Doctor/a! Soy <strong>Duni</strong>, tu asistente de IA odontológica. Tengo acceso a tu agenda, pacientes y métricas. ¿Cómo puedo ayudarte hoy?</p>
-          <div class="cmsg-chips">
-            <button onclick="cinemaSuggest(this)" class="cmsg-chip">¿Qué pasó hoy?</button>
-            <button onclick="cinemaSuggest(this)" class="cmsg-chip">Análisis de ingresos</button>
-            <button onclick="cinemaSuggest(this)" class="cmsg-chip">Cancelaciones</button>
-            <button onclick="cinemaSuggest(this)" class="cmsg-chip">Próximas citas</button>
+      msgs.innerHTML = `<div class="dw-msg dw-msg-ai">
+        <div class="dw-msg-av">${DW_AV_SVG}</div>
+        <div class="dw-msg-body">
+          <div class="dw-msg-bubble"><p>¡Hola, Doctor/a! Soy <strong>Duni</strong>. Tengo acceso en tiempo real a tu agenda, pacientes y métricas. ¿En qué te ayudo ahora?</p></div>
+          <div class="dw-chips">
+            <button onclick="cinemaSuggest(this)" class="dw-chip">¿Qué pasó hoy?</button>
+            <button onclick="cinemaSuggest(this)" class="dw-chip">Ingresos del mes</button>
+            <button onclick="cinemaSuggest(this)" class="dw-chip">Cancelaciones</button>
+            <button onclick="cinemaSuggest(this)" class="dw-chip">Próximas citas</button>
           </div>
+          <div class="dw-msg-time">ahora</div>
         </div>
       </div>`;
     }
@@ -471,17 +471,18 @@ function cinemaAddMsg(html, type) {
   const msgs = document.getElementById('cinemaMsgs');
   if (!msgs) return;
   const div = document.createElement('div');
-  div.className = `cmsg cmsg-${type}`;
+  div.className = type === 'ai' ? 'dw-msg dw-msg-ai' : 'dw-msg dw-msg-user';
+  const now = new Date().toLocaleTimeString('es', { hour: '2-digit', minute: '2-digit' });
   if (type === 'ai') {
-    div.innerHTML = `<div class="cmsg-avatar"><img src="orb-hero.png" alt="Duni"/></div><div class="cmsg-bubble"><p>${html}</p></div>`;
+    div.innerHTML = `<div class="dw-msg-av">${DW_AV_SVG}</div><div class="dw-msg-body"><div class="dw-msg-bubble"><p>${html}</p></div><div class="dw-msg-time">${now}</div></div>`;
   } else {
-    div.innerHTML = `<div class="cmsg-bubble"><p>${html}</p></div>`;
+    div.innerHTML = `<div class="dw-msg-body"><div class="dw-msg-bubble"><p>${html}</p></div><div class="dw-msg-time">${now}</div></div>`;
   }
   div.style.opacity = '0';
-  div.style.transform = type === 'ai' ? 'translateX(-10px)' : 'translateX(10px)';
+  div.style.transform = type === 'ai' ? 'translateX(-12px)' : 'translateX(12px)';
   msgs.appendChild(div);
   requestAnimationFrame(() => {
-    div.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+    div.style.transition = 'opacity 0.38s ease, transform 0.38s ease';
     div.style.opacity = '1';
     div.style.transform = 'translateX(0)';
   });
@@ -493,14 +494,16 @@ function cinemaShowTyping() {
   const msgs = document.getElementById('cinemaMsgs');
   if (!msgs) return;
   const div = document.createElement('div');
-  div.className = 'cmsg cmsg-ai cmsg-typing';
+  div.className = 'dw-msg dw-msg-ai cmsg-typing';
   div.id = 'cinemaTyping';
-  div.innerHTML = `<div class="cmsg-avatar"><img src="orb-hero.png" alt="Duni"/></div>
-    <div class="cmsg-bubble">
-      <div>
-        <span class="wave-bar"></span><span class="wave-bar"></span>
-        <span class="wave-bar"></span><span class="wave-bar"></span>
-        <span class="wave-bar"></span>
+  div.innerHTML = `<div class="dw-msg-av">${DW_AV_SVG}</div>
+    <div class="dw-msg-body">
+      <div class="dw-msg-bubble">
+        <div style="display:inline-flex;align-items:center;gap:4px;">
+          <span class="wave-bar"></span><span class="wave-bar"></span>
+          <span class="wave-bar"></span><span class="wave-bar"></span>
+          <span class="wave-bar"></span>
+        </div>
       </div>
     </div>`;
   msgs.appendChild(div);
