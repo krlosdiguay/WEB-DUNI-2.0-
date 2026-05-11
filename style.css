@@ -1634,9 +1634,14 @@ a { text-decoration: none; color: inherit; }
 }
 
 .dw-chrome-name {
-  display: flex; align-items: center; gap: 7px;
+  display: flex; align-items: center;
   font-size: 14px; font-weight: 700; color: #fff;
   letter-spacing: 0.02em;
+}
+.dw-chrome-name svg {
+  height: 28px;
+  width: auto;
+  display: block;
 }
 .dw-name-duni { color: #fff; }
 .dw-name-badge {
