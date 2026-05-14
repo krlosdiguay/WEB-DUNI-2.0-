@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Duni | IA para Odontólogos · Agenda mientras Operas</title>
-  <meta name="description" content="Duni es la IA que agenda, responde y fideliza a tus pacientes mientras tú operas. La plataforma de comunicación inteligente diseñada para el odontólogo independiente.">
+  <title>DUNI | Precision Medicine AI & Automation Patient Management</title>
+  <meta name="description" content="DUNI: IA para la clínica del futuro. Medicina de precisión y gestión automatizada de pacientes para médicos.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,1259 +13,505 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
-      theme: { extend: { fontFamily: { inter: ['Inter','sans-serif'] } } }
+      theme: {
+        extend: {
+          fontFamily: { inter: ['Inter','sans-serif'] },
+          colors: {
+            duni: {
+              blue: '#2563EB',
+              cyan: '#06B6D4',
+              dark: '#0A0F1E',
+              light: '#F9FAFB'
+            }
+          }
+        }
+      }
     }
   </script>
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="font-inter bg-[#F9FAFB] text-[#0A0F1E] overflow-x-hidden antialiased">
+<body class="font-inter bg-white text-[#0A0F1E] overflow-x-hidden antialiased">
 
-<!-- ===== SVG DEFS ===== -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <!-- Orb gradients -->
-    <radialGradient id="orbCoreGrad" cx="35%" cy="35%" r="65%">
-      <stop offset="0%" stop-color="#67E8F9"/>
-      <stop offset="40%" stop-color="#06B6D4"/>
-      <stop offset="80%" stop-color="#2563EB"/>
-      <stop offset="100%" stop-color="#1E1B4B"/>
-    </radialGradient>
-    <radialGradient id="orbGlowGrad" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#06B6D4" stop-opacity="0.6"/>
-      <stop offset="60%" stop-color="#2563EB" stop-opacity="0.2"/>
-      <stop offset="100%" stop-color="#2563EB" stop-opacity="0"/>
-    </radialGradient>
-    <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#06B6D4" stop-opacity="0"/>
-      <stop offset="50%" stop-color="#67E8F9" stop-opacity="1"/>
-      <stop offset="100%" stop-color="#06B6D4" stop-opacity="0"/>
-    </linearGradient>
-    <linearGradient id="ringGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#2563EB" stop-opacity="0"/>
-      <stop offset="50%" stop-color="#3B82F6" stop-opacity="0.9"/>
-      <stop offset="100%" stop-color="#2563EB" stop-opacity="0"/>
-    </linearGradient>
-    <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#06B6D4"/>
-      <stop offset="100%" stop-color="#2563EB"/>
-    </linearGradient>
-    <radialGradient id="iconGrad" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#67E8F9"/>
-      <stop offset="100%" stop-color="#2563EB"/>
-    </radialGradient>
-    <filter id="orbBlur" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="2"/>
-    </filter>
-    <filter id="orbBlurStrong" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="6"/>
-    </filter>
-
-    <!-- Reusable Duni Orb (large) -->
-    <symbol id="duniOrbLarge" viewBox="0 0 200 200">
-      <!-- Outer ambient glow -->
-      <circle class="orb-glow" cx="100" cy="100" r="95" fill="url(#orbGlowGrad)"/>
-      <!-- Outer ring with dashed pattern -->
-      <circle class="orb-ring-outer" cx="100" cy="100" r="88" fill="none"
-              stroke="url(#ringGrad)" stroke-width="0.8" stroke-dasharray="2 5" opacity="0.7"/>
-      <!-- Mid ring solid -->
-      <circle class="orb-ring-mid" cx="100" cy="100" r="74" fill="none"
-              stroke="url(#ringGrad2)" stroke-width="0.6" stroke-dasharray="80 40" opacity="0.6"/>
-      <!-- Inner ring -->
-      <circle class="orb-ring-inner" cx="100" cy="100" r="62" fill="none"
-              stroke="url(#ringGrad)" stroke-width="1" stroke-dasharray="1 3" opacity="0.8"/>
-      <!-- Core sphere -->
-      <circle class="orb-core" cx="100" cy="100" r="50" fill="url(#orbCoreGrad)"/>
-      <!-- Highlight specular -->
-      <ellipse cx="84" cy="80" rx="14" ry="10" fill="#fff" opacity="0.35" filter="url(#orbBlur)"/>
-      <ellipse cx="92" cy="86" rx="6" ry="4" fill="#fff" opacity="0.6"/>
-      <!-- Orbiting particles -->
-      <g class="orb-particle orb-particle-1">
-        <circle cx="100" cy="12" r="2.5" fill="#67E8F9" filter="url(#orbBlur)"/>
-        <circle cx="100" cy="12" r="1.5" fill="#fff"/>
-      </g>
-      <g class="orb-particle orb-particle-2">
-        <circle cx="100" cy="20" r="2" fill="#3B82F6" filter="url(#orbBlur)"/>
-        <circle cx="100" cy="20" r="1" fill="#fff"/>
-      </g>
-      <g class="orb-particle orb-particle-3">
-        <circle cx="100" cy="30" r="1.5" fill="#A78BFA" filter="url(#orbBlur)"/>
-        <circle cx="100" cy="30" r="0.8" fill="#fff"/>
-      </g>
-      <g class="orb-particle orb-particle-4">
-        <circle cx="100" cy="180" r="2" fill="#14B8A6" filter="url(#orbBlur)"/>
-        <circle cx="100" cy="180" r="1" fill="#fff"/>
-      </g>
-    </symbol>
-
-    <!-- Mini Orb for chat avatars -->
-    <symbol id="duniOrbMini" viewBox="0 0 40 40">
-      <circle class="orb-glow" cx="20" cy="20" r="20" fill="url(#orbGlowGrad)"/>
-      <circle class="orb-ring-outer" cx="20" cy="20" r="18" fill="none"
-              stroke="url(#ringGrad)" stroke-width="0.5" stroke-dasharray="1 2" opacity="0.7"/>
-      <circle class="orb-core" cx="20" cy="20" r="13" fill="url(#orbCoreGrad)"/>
-      <ellipse cx="16" cy="16" rx="3" ry="2" fill="#fff" opacity="0.5" filter="url(#orbBlur)"/>
-    </symbol>
-
-    <!-- Logo Mark -->
-    <symbol id="duniMark" viewBox="0 0 32 32">
-      <circle cx="16" cy="16" r="9" fill="url(#logoGrad)"/>
-      <circle cx="16" cy="16" r="4" fill="#0A0F1E" opacity="0.8"/>
-      <circle cx="16" cy="16" r="2" fill="#67E8F9"/>
-    </symbol>
-
-    <!-- Logo Mark for footer (white version) -->
-    <symbol id="duniMarkLight" viewBox="0 0 32 32">
-      <circle cx="16" cy="16" r="9" fill="url(#logoGrad)"/>
-      <circle cx="16" cy="16" r="4" fill="#fff" opacity="0.15"/>
-      <circle cx="16" cy="16" r="2" fill="#67E8F9"/>
-    </symbol>
-
-    <!-- Duni Wordmark Logo -->
-    <symbol id="duniWordmark" viewBox="0 0 280 100">
-      <text x="10" y="75" font-family="Georgia, serif" font-size="72" font-weight="500" fill="#4A6FA5" letter-spacing="-2">Duni</text>
-      <circle cx="235" cy="22" r="8" fill="#4A6FA5"/>
-    </symbol>
-
-    <!-- Duni Wordmark Light (white) -->
-    <symbol id="duniWordmarkLight" viewBox="0 0 280 100">
-      <text x="10" y="75" font-family="Georgia, serif" font-size="72" font-weight="500" fill="#ffffff" letter-spacing="-2">Duni</text>
-      <circle cx="235" cy="22" r="8" fill="#ffffff"/>
-    </symbol>
-
-    <!-- Duni Logo Text -->
-    <symbol id="duniLogo" viewBox="0 0 120 80">
-      <text x="0" y="60" font-family="Inter, sans-serif" font-size="52" font-weight="700" fill="#4B7BA7" letter-spacing="-2">Duni</text>
-      <circle cx="105" cy="25" r="6" fill="#4B7BA7"/>
-    </symbol>
-
-    <!-- TECH ICONS -->
-    <!-- AGENT: Conversational waves emanating -->
-    <symbol id="iconAgent" viewBox="0 0 32 32">
-      <circle cx="16" cy="16" r="3" fill="url(#iconGrad)"/>
-      <path d="M 8 16 Q 12 12 16 16 T 24 16" stroke="#06B6D4" stroke-width="1.2" fill="none" opacity="0.7"/>
-      <path d="M 5 16 Q 10.5 9 16 16 T 27 16" stroke="#06B6D4" stroke-width="1" fill="none" opacity="0.4"/>
-      <path d="M 2 16 Q 9 6 16 16 T 30 16" stroke="#06B6D4" stroke-width="0.8" fill="none" opacity="0.2"/>
-    </symbol>
-
-    <!-- AGENDA: time circles connected -->
-    <symbol id="iconAgenda" viewBox="0 0 32 32">
-      <circle cx="6" cy="8" r="2.5" fill="#06B6D4"/>
-      <circle cx="16" cy="8" r="2.5" fill="#06B6D4" opacity="0.6"/>
-      <circle cx="26" cy="8" r="2.5" fill="#06B6D4" opacity="0.3"/>
-      <circle cx="6" cy="16" r="2.5" fill="#06B6D4" opacity="0.6"/>
-      <circle cx="16" cy="16" r="3.5" fill="url(#iconGrad)"/>
-      <circle cx="26" cy="16" r="2.5" fill="#06B6D4" opacity="0.6"/>
-      <circle cx="6" cy="24" r="2.5" fill="#06B6D4" opacity="0.3"/>
-      <circle cx="16" cy="24" r="2.5" fill="#06B6D4" opacity="0.6"/>
-      <circle cx="26" cy="24" r="2.5" fill="#06B6D4"/>
-      <line x1="16" y1="16" x2="6" y2="8" stroke="#06B6D4" stroke-width="0.5" opacity="0.3"/>
-      <line x1="16" y1="16" x2="26" y2="24" stroke="#06B6D4" stroke-width="0.5" opacity="0.3"/>
-    </symbol>
-
-    <!-- INSIGHTS: ascending data bars with arrow -->
-    <symbol id="iconInsights" viewBox="0 0 32 32">
-      <rect x="3" y="22" width="4" height="7" rx="1" fill="#06B6D4" opacity="0.4"/>
-      <rect x="10" y="16" width="4" height="13" rx="1" fill="#06B6D4" opacity="0.6"/>
-      <rect x="17" y="10" width="4" height="19" rx="1" fill="#06B6D4" opacity="0.8"/>
-      <rect x="24" y="4" width="4" height="25" rx="1" fill="url(#iconGrad)"/>
-      <path d="M 5 18 L 12 13 L 19 8 L 26 3" stroke="#67E8F9" stroke-width="1" fill="none" opacity="0.7"/>
-      <circle cx="26" cy="3" r="1.5" fill="#67E8F9"/>
-    </symbol>
-
-    <!-- FLOW: connected nodes (network) -->
-    <symbol id="iconFlow" viewBox="0 0 32 32">
-      <line x1="6" y1="8" x2="16" y2="16" stroke="#06B6D4" stroke-width="0.6" opacity="0.5"/>
-      <line x1="16" y1="16" x2="26" y2="6" stroke="#06B6D4" stroke-width="0.6" opacity="0.5"/>
-      <line x1="6" y1="24" x2="16" y2="16" stroke="#06B6D4" stroke-width="0.6" opacity="0.5"/>
-      <line x1="16" y1="16" x2="28" y2="22" stroke="#06B6D4" stroke-width="0.6" opacity="0.5"/>
-      <circle cx="6" cy="8" r="2.5" fill="#06B6D4"/>
-      <circle cx="26" cy="6" r="2" fill="#3B82F6"/>
-      <circle cx="6" cy="24" r="2" fill="#3B82F6"/>
-      <circle cx="28" cy="22" r="2.5" fill="#06B6D4"/>
-      <circle cx="16" cy="16" r="4" fill="url(#iconGrad)"/>
-      <circle cx="16" cy="16" r="1.5" fill="#fff"/>
-    </symbol>
-
-    <!-- WhatsApp brand icon -->
-    <symbol id="iconWhatsApp" viewBox="0 0 32 32">
-      <path d="M16 3C8.8 3 3 8.8 3 16c0 2.3.6 4.5 1.7 6.4L3 29l6.8-1.8c1.8 1 3.9 1.5 6.2 1.5 7.2 0 13-5.8 13-13S23.2 3 16 3zm0 23.7c-2 0-4-.5-5.7-1.5l-.4-.2-4 1 1-3.9-.3-.4c-1.1-1.7-1.6-3.6-1.6-5.7 0-6 4.9-10.7 10.7-10.7C22 5.3 26.7 10 26.7 16S22 26.7 16 26.7zm6.1-8c-.3-.2-1.9-1-2.2-1.1-.3-.1-.5-.2-.8.2s-.9 1.1-1.1 1.3c-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-2-1.8-2.3-.2-.3 0-.5.1-.7.1-.1.3-.4.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5s-.8-1.9-1-2.6c-.3-.7-.6-.6-.8-.6-.2 0-.4 0-.7 0-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.7s1.2 3.2 1.4 3.4c.2.2 2.4 3.6 5.7 5.1 2.7 1.2 3.4 1.1 4 1 .8-.1 1.9-.8 2.2-1.6.3-.7.3-1.4.2-1.5-.1-.1-.4-.2-.7-.4z" fill="#25D366"/>
-    </symbol>
-
-    <!-- Send icon -->
-    <symbol id="iconSend" viewBox="0 0 24 24">
-      <path d="M2 12L21 3L13 21L11 13L2 12Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" fill="none"/>
-    </symbol>
-
-    <!-- Sparkles for AI -->
-    <symbol id="iconSparkle" viewBox="0 0 24 24">
-      <path d="M12 2L13.5 8.5L20 10L13.5 11.5L12 18L10.5 11.5L4 10L10.5 8.5L12 2Z" fill="currentColor"/>
-      <path d="M19 16L19.7 18.3L22 19L19.7 19.7L19 22L18.3 19.7L16 19L18.3 18.3L19 16Z" fill="currentColor" opacity="0.7"/>
-    </symbol>
-  </defs>
-</svg>
-
-
-<!-- ===== ANNOUNCEMENT BAR ===== -->
-<div id="announcementBar" class="fixed top-0 left-0 right-0 z-[1001] bg-[#050A14] border-b border-white/[0.07] px-10 py-2.5 flex items-center justify-center gap-5 text-[12px] text-white/50">
-  <span>Únete al foro de Odontólogos Ecuador</span>
-  <a href="#" class="text-[#06B6D4] font-semibold border-b border-[#06B6D4]/40 hover:border-[#06B6D4] transition-all leading-none pb-[1px]">Más información →</a>
-</div>
-
-<!-- ===== NAVBAR ===== -->
-<nav id="navbar" class="fixed left-0 right-0 z-[1000] bg-white/95 backdrop-blur-xl border-b border-black/[0.06] transition-all duration-300" style="top:37px">
-  <div class="max-w-[1440px] mx-auto px-10 h-16 flex items-center">
-
-    <a href="#" class="duni-wordmark mr-12 shrink-0">
-      <svg style="width:120px;height:40px" viewBox="0 0 280 100"><use href="#duniWordmark"/></svg>
-    </a>
-
-    <ul class="nav-links flex list-none gap-0 flex-1">
-      <li class="nav-item group relative">
-        <a href="#" class="block px-4 h-16 leading-[64px] text-[11px] font-semibold tracking-[0.08em] text-[#0A0F1E] hover:text-[#2563EB] transition-colors whitespace-nowrap">DENTISTAS</a>
-        <div class="dropdown">
-          <div class="flex flex-col gap-1.5">
-            <h4>Odontología General</h4>
-            <a href="#" class="text-[13px] text-gray-700 hover:text-[#2563EB] py-0.5 transition-colors">Resumen General</a>
-            <a href="#" class="text-[13px] text-gray-700 hover:text-[#2563EB] py-0.5 transition-colors">Agenda Inteligente</a>
-            <a href="#" class="text-[13px] text-gray-700 hover:text-[#2563EB] py-0.5 transition-colors">Recordatorios IA</a>
-            <a href="#" class="text-[13px] text-gray-700 hover:text-[#2563EB] py-0.5 transition-colors">Duni Hub</a>
-            <a href="#" class="text-[13px] text-gray-700 hover:text-[#2563EB] py-0.5 transition-colors">Duni Agent</a>
-            <a href="#" class="text-[13px] text-gray-700 hover:text-[#2563EB] py-0.5 transition-colors">Integración WhatsApp</a>
-          </div>
-          <div class="flex flex-col gap-1.5">
-            <h4>Ortodoncia</h4>
-            <a href="#" class="text-[13px] text-gray-700 hover:text-[#2563EB] py-0.5 transition-colors">Duni PRO™</a>
-            <a href="#" class="text-[13px] text-gray-700 hover:text-[#2563EB] py-0.5 transition-colors">Seguimiento</a>
-            <h4 style="margin-top:20px">Implantología</h4>
-            <a href="#" class="text-[13px] text-gray-700 hover:text-[#2563EB] py-0.5 transition-colors">Duni Flow</a>
-            <a href="#" class="text-[13px] text-gray-700 hover:text-[#2563EB] py-0.5 transition-colors">Protocolos</a>
-          </div>
-          <div class="flex flex-col gap-1.5">
-            <h4>Cirugía</h4>
-            <a href="#" class="text-[13px] text-gray-700 hover:text-[#2563EB] py-0.5 transition-colors">Pre-Op IA</a>
-            <a href="#" class="text-[13px] text-gray-700 hover:text-[#2563EB] py-0.5 transition-colors">Post-Op IA</a>
-            <h4 style="margin-top:20px">Otros</h4>
-            <a href="#" class="text-[13px] text-gray-700 hover:text-[#2563EB] py-0.5 transition-colors">Centros Académicos</a>
-            <a href="#" class="text-[13px] text-gray-700 hover:text-[#2563EB] py-0.5 transition-colors">Colaboraciones</a>
-          </div>
-        </div>
-      </li>
-      <li class="nav-item group relative">
-        <a href="#" class="block px-4 h-16 leading-[64px] text-[11px] font-semibold tracking-[0.08em] text-[#0A0F1E] hover:text-[#2563EB] transition-colors whitespace-nowrap">CLÍNICAS</a>
-      </li>
-      <li class="nav-item relative">
-        <a href="#" class="block px-4 h-16 leading-[64px] text-[11px] font-semibold tracking-[0.08em] text-[#0A0F1E] hover:text-[#2563EB] transition-colors">PACIENTES</a>
-      </li>
-      <li class="nav-item relative">
-        <a href="#" class="block px-4 h-16 leading-[64px] text-[11px] font-semibold tracking-[0.08em] text-[#0A0F1E] hover:text-[#2563EB] transition-colors">RECURSOS</a>
-      </li>
-      <li class="nav-item relative">
-        <a href="#caracteristicas" class="block px-4 h-16 leading-[64px] text-[11px] font-semibold tracking-[0.08em] text-[#0A0F1E] hover:text-[#2563EB] transition-colors">CARACTERÍSTICAS</a>
-      </li>
-      <li class="nav-item relative">
-        <a href="#como-funciona" class="block px-4 h-16 leading-[64px] text-[11px] font-semibold tracking-[0.08em] text-[#0A0F1E] hover:text-[#2563EB] transition-colors">CÓMO FUNCIONA</a>
-      </li>
-    </ul>
-
-    <div class="nav-actions flex items-center gap-2 ml-auto shrink-0">
-      <a href="#" class="border border-gray-300 px-4 py-2 text-[11px] font-semibold tracking-[0.06em] text-[#0A0F1E] hover:border-[#0A0F1E] transition-colors">INGRESAR</a>
-      <a href="#" class="bg-[#2563EB] text-white px-4 py-2.5 text-[11px] font-semibold tracking-[0.06em] hover:bg-[#1D4ED8] transition-all duration-300">CONTACTO</a>
+<!-- ===== HEADER / NAVBAR ===== -->
+<header class="sticky top-0 z-50 bg-white border-b border-gray-100">
+  <nav class="max-w-[1440px] mx-auto px-6 md:px-10 py-4 flex items-center justify-between">
+    <!-- Logo -->
+    <div class="flex items-center gap-2 text-2xl font-bold bg-gradient-to-r from-[#06B6D4] to-[#2563EB] bg-clip-text text-transparent">
+      <span>DUNI</span>
     </div>
 
-    <button id="mobileMenuBtn" onclick="toggleMobile()" class="mobile-menu-btn flex-col gap-1.5 bg-transparent border-none cursor-pointer p-2 ml-auto">
-      <span class="block w-6 h-0.5 bg-[#0A0F1E]"></span>
-      <span class="block w-6 h-0.5 bg-[#0A0F1E]"></span>
-      <span class="block w-6 h-0.5 bg-[#0A0F1E]"></span>
-    </button>
-  </div>
-</nav>
+    <!-- Nav Links -->
+    <div class="hidden md:flex items-center gap-8">
+      <a href="#products" class="text-sm font-medium text-gray-600 hover:text-[#2563EB] transition">Products</a>
+      <a href="#science" class="text-sm font-medium text-gray-600 hover:text-[#2563EB] transition">IA Services</a>
+      <a href="#admins" class="text-sm font-medium text-gray-600 hover:text-[#2563EB] transition">Admins</a>
+      <a href="#resources" class="text-sm font-medium text-gray-600 hover:text-[#2563EB] transition">Resources</a>
+      <a href="#about" class="text-sm font-medium text-gray-600 hover:text-[#2563EB] transition">About us</a>
+    </div>
 
-<div id="mobileMenu" class="mobile-menu fixed top-[101px] left-0 right-0 bg-white border-b border-gray-100 px-10 pt-5 pb-10 flex-col gap-1 z-[999]">
-  <a href="#" class="block py-3 text-sm font-semibold tracking-wider border-b border-gray-100">DENTISTAS</a>
-  <a href="#" class="block py-3 text-sm font-semibold tracking-wider border-b border-gray-100">CLÍNICAS</a>
-  <a href="#" class="block py-3 text-sm font-semibold tracking-wider border-b border-gray-100">PACIENTES</a>
-  <a href="#" class="block py-3 text-sm font-semibold tracking-wider border-b border-gray-100">RECURSOS</a>
-  <a href="#caracteristicas" class="block py-3 text-sm font-semibold tracking-wider border-b border-gray-100">CARACTERÍSTICAS</a>
-  <a href="#como-funciona" class="block py-3 text-sm font-semibold tracking-wider">CÓMO FUNCIONA</a>
-</div>
+    <!-- CTA Buttons -->
+    <div class="flex items-center gap-4">
+      <button class="hidden sm:inline-block px-4 py-2 text-sm font-semibold text-[#2563EB] bg-blue-50 rounded-lg hover:bg-blue-100 transition">Start trial</button>
+      <button class="text-sm font-medium text-gray-600 hover:text-[#2563EB] transition">Login</button>
+    </div>
+  </nav>
+</header>
 
-<!-- ================================================================ -->
-<!-- HERO SECTION -->
-<!-- ================================================================ -->
-<section id="hero" class="relative w-full min-h-screen flex items-center bg-[#050A14] overflow-hidden">
-  <canvas id="heroCanvas" class="absolute inset-0 w-full h-full z-0"></canvas>
-  <div class="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#050A14] to-transparent z-[1] pointer-events-none"></div>
+<!-- ===== HERO SECTION ===== -->
+<section class="relative pt-20 pb-24 md:pt-32 md:pb-40 overflow-hidden">
+  <!-- Background gradient orb -->
+  <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-bl from-blue-100 via-cyan-50 to-transparent rounded-full blur-3xl opacity-40 -translate-y-1/2"></div>
 
-  <div class="relative z-[2] max-w-[1440px] mx-auto px-20 pt-28 flex items-center justify-between w-full gap-8">
-    <div class="max-w-[560px]">
-      <div class="text-[11px] font-semibold tracking-[0.22em] text-[#06B6D4] uppercase mb-6 reveal-hero flex items-center gap-2">
-        <svg class="w-3 h-3" viewBox="0 0 24 24"><use href="#iconSparkle" fill="#06B6D4"/></svg>
-        Plataforma de IA para Odontólogos
-      </div>
-      <h1 class="text-[clamp(36px,4.5vw,66px)] font-light leading-[1.1] text-white tracking-[-0.02em] mb-6 reveal-hero" style="animation-delay:0.1s">
-        Con el poder de la IA,<br>ahora tienes la habilidad de
+  <div class="max-w-[1440px] mx-auto px-6 md:px-10 relative z-10">
+    <div class="text-center mb-12">
+      <h1 class="text-4xl md:text-6xl font-light text-[#0A0F1E] mb-4 tracking-tight">
+        AI for the <span class="font-semibold">Clinic of the Future</span>
       </h1>
-      <p class="text-[16px] text-white/45 font-light leading-relaxed mb-10 max-w-[400px] reveal-hero" style="animation-delay:0.2s">
-        El asistente inteligente que trabaja por ti 24/7: agenda, responde y fideliza mientras tú te enfocas en lo que importa.
+      <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
+        Precision Medicine AI and Automation Patient Management for Doctors
       </p>
-      <div class="flex gap-4 flex-wrap reveal-hero" style="animation-delay:0.3s">
-        <a href="#" class="hero-cta-primary">Prueba Gratis — 14 días</a>
-        <a href="#demo" class="hero-cta-ghost">Ver Demo en vivo ↓</a>
+    </div>
+
+    <!-- Phone Mockups -->
+    <div class="flex justify-center items-center gap-8 mb-12 px-4">
+      <div class="relative">
+        <div class="bg-gradient-to-b from-blue-500 to-cyan-400 rounded-[40px] p-3 shadow-2xl" style="width: 200px; height: 400px;">
+          <div class="bg-white rounded-[32px] h-full flex flex-col overflow-hidden">
+            <div class="bg-gradient-to-r from-blue-400 to-cyan-300 px-4 py-3 text-white text-xs font-semibold">Assistant</div>
+            <div class="flex-1 p-3 space-y-2 overflow-y-auto">
+              <div class="bg-blue-50 rounded p-2 text-[10px]">Paciente: Juan García</div>
+              <div class="bg-green-50 rounded p-2 text-[10px]">✓ Cita confirmada 14/05</div>
+              <div class="bg-blue-50 rounded p-2 text-[10px]">Recordatorio enviado</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="relative">
+        <div class="bg-gradient-to-b from-blue-600 to-indigo-500 rounded-[40px] p-3 shadow-2xl" style="width: 200px; height: 400px;">
+          <div class="bg-[#0A0F1E] rounded-[32px] h-full flex flex-col overflow-hidden">
+            <div class="bg-gradient-to-r from-cyan-400 to-blue-400 px-4 py-3 text-white text-xs font-semibold">Dashboard</div>
+            <div class="flex-1 p-3 space-y-2 text-white text-[10px]">
+              <div class="flex justify-between"><span>Pacientes hoy:</span><span class="font-bold">12</span></div>
+              <div class="flex justify-between"><span>Confirmadas:</span><span class="font-bold">10</span></div>
+              <div class="flex justify-between"><span>Automensajes:</span><span class="font-bold">24</span></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="hero-pills flex flex-col min-w-[300px]">
-      <div class="hero-pill active" data-index="0">
-        <span class="pill-label">AGENDAR</span>
-        <span class="pill-desc">citas mientras estás operando</span>
-      </div>
-      <div class="hero-pill" data-index="1">
-        <span class="pill-label">RESPONDER</span>
-        <span class="pill-desc">a cada paciente al instante, 24/7</span>
-      </div>
-      <div class="hero-pill" data-index="2">
-        <span class="pill-label">RECUPERAR</span>
-        <span class="pill-desc">los ingresos que se pierden en silencio</span>
-      </div>
-      <div class="hero-pill" data-index="3">
-        <span class="pill-label">FIDELIZAR</span>
-        <span class="pill-desc">pacientes con seguimiento automático</span>
-      </div>
-    </div>
-
-    <!-- Hero visual: Hyper-realistic AI Orb -->
-    <div class="hero-orb-container reveal-hero" style="animation-delay:0.15s">
-      <div class="hero-orb-rings">
-        <div class="hero-ring hero-ring-1"></div>
-        <div class="hero-ring hero-ring-2"></div>
-        <div class="hero-ring hero-ring-3"></div>
-      </div>
-      <img src="orb-hero.png" alt="Duni" class="hero-orb-img" />
-      <div class="hero-orb-glow"></div>
-    </div>
-  </div>
-
-  <div class="hero-scroll">
-    <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
-  </div>
-</section>
-
-<!-- ================================================================ -->
-<!-- DUNI FEATURES — ANIMATED SCROLL -->
-<!-- ================================================================ -->
-<section class="bg-white py-20 overflow-hidden">
-  <div class="max-w-[1440px] mx-auto px-20">
-    <div class="mb-14 text-center reveal">
-      <div class="text-[11px] font-semibold tracking-[0.2em] text-[#2563EB] uppercase mb-4">Lo que Duni hace</div>
-      <h2 class="text-[clamp(28px,3.8vw,52px)] font-light text-[#0A0F1E] tracking-[-0.02em]">Funciones inteligentes que trabajan por ti</h2>
-    </div>
-
-    <div class="relative h-48 overflow-hidden">
-      <style>
-        @keyframes scrollLeft {
-          0% { transform: translateX(100%); opacity: 0; }
-          10% { opacity: 1; }
-          90% { opacity: 1; }
-          100% { transform: translateX(-100%); opacity: 0; }
-        }
-        .duni-feature {
-          position: absolute;
-          width: 320px;
-          padding: 24px;
-          background: linear-gradient(135deg, #f0f9ff, #f0f7ff);
-          border: 1px solid #e0f2fe;
-          border-radius: 16px;
-          box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-          animation: scrollLeft 12s ease-in-out infinite;
-        }
-        .duni-feature:nth-child(1) { animation-delay: 0s; left: 0; }
-        .duni-feature:nth-child(2) { animation-delay: 3s; left: 0; }
-        .duni-feature:nth-child(3) { animation-delay: 6s; left: 0; }
-        .duni-feature:nth-child(4) { animation-delay: 9s; left: 0; }
-        .duni-feature:hover {
-          background: linear-gradient(135deg, #e0f2fe, #cffafe);
-          border-color: #06b6d4;
-          transform: scale(1.02);
-          transition: all 0.3s ease;
-        }
-        .feature-icon {
-          width: 48px;
-          height: 48px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          background: linear-gradient(135deg, #2563EB, #1D4ED8);
-          border-radius: 12px;
-          margin-bottom: 12px;
-          color: #fff;
-          font-size: 24px;
-        }
-        .feature-icon.chat { background: linear-gradient(135deg, #06B6D4, #0891B2); }
-        .feature-icon.schedule { background: linear-gradient(135deg, #14B8A6, #0D9488); }
-        .feature-icon.analyze { background: linear-gradient(135deg, #8B5CF6, #7C3AED); }
-        .feature-icon.patient { background: linear-gradient(135deg, #EC4899, #DB2777); }
-      </style>
-
-      <div class="duni-feature">
-        <div class="feature-icon chat">
-          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-8 h-8">
-            <defs>
-              <linearGradient id="chatGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" style="stop-color:#fff;stop-opacity:1" />
-                <stop offset="100%" style="stop-color:#e0f2fe;stop-opacity:1" />
-              </linearGradient>
-            </defs>
-            <path d="M50 10H14C10.686 10 8 12.686 8 16v28c0 3.314 2.686 6 6 6h22l12 8v-8h2c3.314 0 6-2.686 6-6V16c0-3.314-2.686-6-6-6z" fill="url(#chatGrad)" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-            <circle cx="22" cy="28" r="3" fill="currentColor"/>
-            <circle cx="32" cy="28" r="3" fill="currentColor"/>
-            <circle cx="42" cy="28" r="3" fill="currentColor"/>
-          </svg>
-        </div>
-        <h3 class="text-[16px] font-semibold text-[#0A0F1E] mb-2">Responde Mensajes</h3>
-        <p class="text-[13px] text-gray-600">Contesta automáticamente por WhatsApp 24/7 sin tu intervención</p>
-      </div>
-
-      <div class="duni-feature">
-        <div class="feature-icon schedule">
-          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-8 h-8">
-            <defs>
-              <linearGradient id="scheduleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" style="stop-color:#fff;stop-opacity:1" />
-                <stop offset="100%" style="stop-color:#ccf7f4;stop-opacity:1" />
-              </linearGradient>
-            </defs>
-            <rect x="10" y="12" width="44" height="42" rx="3" fill="url(#scheduleGrad)" stroke="currentColor" stroke-width="2"/>
-            <line x1="50" y1="8" x2="50" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            <line x1="14" y1="8" x2="14" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            <line x1="10" y1="24" x2="54" y2="24" stroke="currentColor" stroke-width="1.5" stroke-opacity="0.5"/>
-            <circle cx="24" cy="36" r="3" fill="currentColor"/>
-            <circle cx="40" cy="36" r="3" fill="currentColor"/>
-            <circle cx="32" cy="48" r="3" fill="currentColor"/>
-          </svg>
-        </div>
-        <h3 class="text-[16px] font-semibold text-[#0A0F1E] mb-2">Agenda Inteligente</h3>
-        <p class="text-[13px] text-gray-600">Llena huecos y optimiza tu agenda automáticamente</p>
-      </div>
-
-      <div class="duni-feature">
-        <div class="feature-icon analyze">
-          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-8 h-8">
-            <defs>
-              <linearGradient id="analyzeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" style="stop-color:#fff;stop-opacity:1" />
-                <stop offset="100%" style="stop-color:#f3e8ff;stop-opacity:1" />
-              </linearGradient>
-            </defs>
-            <rect x="8" y="44" width="8" height="14" rx="1" fill="url(#analyzeGrad)" stroke="currentColor" stroke-width="1.5"/>
-            <rect x="20" y="32" width="8" height="26" rx="1" fill="url(#analyzeGrad)" stroke="currentColor" stroke-width="1.5"/>
-            <rect x="32" y="20" width="8" height="38" rx="1" fill="url(#analyzeGrad)" stroke="currentColor" stroke-width="1.5"/>
-            <rect x="44" y="12" width="8" height="46" rx="1" fill="url(#analyzeGrad)" stroke="currentColor" stroke-width="1.5"/>
-            <polyline points="8,44 20,32 32,20 44,12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-opacity="0.6"/>
-          </svg>
-        </div>
-        <h3 class="text-[16px] font-semibold text-[#0A0F1E] mb-2">Analiza Datos</h3>
-        <p class="text-[13px] text-gray-600">Obtén insights en tiempo real de tu práctica</p>
-      </div>
-
-      <div class="duni-feature">
-        <div class="feature-icon patient">
-          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-8 h-8">
-            <defs>
-              <linearGradient id="patientGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" style="stop-color:#fff;stop-opacity:1" />
-                <stop offset="100%" style="stop-color:#fce7f3;stop-opacity:1" />
-              </linearGradient>
-            </defs>
-            <circle cx="20" cy="20" r="8" fill="url(#patientGrad)" stroke="currentColor" stroke-width="2"/>
-            <path d="M10 40c0-5.523 4.477-10 10-10s10 4.477 10 10v8H10v-8z" fill="url(#patientGrad)" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-            <circle cx="48" cy="20" r="8" fill="url(#patientGrad)" stroke="currentColor" stroke-width="2" opacity="0.7"/>
-            <path d="M38 40c0-5.523 4.477-10 10-10s10 4.477 10 10v8H38v-8z" fill="url(#patientGrad)" stroke="currentColor" stroke-width="2" stroke-linejoin="round" opacity="0.7"/>
-            <line x1="32" y1="22" x2="36" y2="22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
-          </svg>
-        </div>
-        <h3 class="text-[16px] font-semibold text-[#0A0F1E] mb-2">Fideliza Pacientes</h3>
-        <p class="text-[13px] text-gray-600">Retén pacientes con seguimiento automático</p>
-      </div>
+    <!-- CTA Button -->
+    <div class="text-center">
+      <button class="inline-block px-6 py-3 bg-[#2563EB] hover:bg-blue-700 text-white font-semibold rounded-lg transition shadow-lg hover:shadow-xl">
+        Solicitar Acceso a la Plataforma
+      </button>
     </div>
   </div>
 </section>
 
-<!-- ================================================================ -->
-<!-- TECH SECTION — with custom SVG icons -->
-<!-- ================================================================ -->
-<section id="tech" class="bg-[#F9FAFB] py-28">
-  <div class="max-w-[1440px] mx-auto px-20">
-    <div class="mb-14 reveal">
-      <div class="text-[11px] font-semibold tracking-[0.2em] text-[#2563EB] uppercase mb-4">Tecnología</div>
-      <h2 class="text-[clamp(28px,3.5vw,48px)] font-light text-[#0A0F1E] tracking-[-0.02em]">Descubre nuestra tecnología</h2>
-    </div>
-
-    <div class="grid grid-cols-4 gap-0.5 mb-10">
-      <!-- AGENT -->
-      <div class="group relative bg-[#0A0F1E] p-10 min-h-[320px] flex flex-col justify-between overflow-hidden cursor-pointer reveal border border-[#0A0F1E]">
-        <div class="relative z-10">
-          <svg class="tech-icon"><use href="#iconAgent"/></svg>
-          <span class="block text-[28px] font-bold tracking-[0.06em] text-white mb-3">AGENT</span>
-          <p class="text-[13.5px] font-light text-white/55 leading-relaxed">Asistente conversacional que dialoga con tus pacientes por WhatsApp 24/7, comprende contexto clínico y agenda automáticamente.</p>
+<!-- ===== FEATURES SECTION ===== -->
+<section id="features" class="py-20 md:py-32 bg-gradient-to-b from-gray-900 to-[#1a1a2e] text-white">
+  <div class="max-w-[1440px] mx-auto px-6 md:px-10">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div class="flex flex-col items-start">
+        <div class="w-12 h-12 bg-cyan-400/20 rounded-lg flex items-center justify-center mb-4">
+          <span class="text-2xl">⚡</span>
         </div>
-        <div class="absolute inset-0 bg-gradient-to-br from-[#2563EB]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"></div>
-        <div class="absolute -bottom-4 -right-4 w-24 h-24 rounded-full bg-[#2563EB]/15 blur-2xl group-hover:bg-[#2563EB]/30 transition-all duration-500"></div>
-        <span class="relative z-10 text-[11px] text-[#06B6D4] font-semibold tracking-[0.1em] group-hover:text-white transition-colors">EXPLORAR →</span>
-      </div>
-
-      <!-- AGENDA -->
-      <div class="group relative bg-white border border-gray-200 p-10 min-h-[320px] flex flex-col justify-between overflow-hidden cursor-pointer reveal hover:border-[#2563EB]/30 hover:shadow-2xl transition-all duration-300">
-        <div class="relative z-10">
-          <svg class="tech-icon"><use href="#iconAgenda"/></svg>
-          <span class="block text-[28px] font-bold tracking-[0.06em] text-[#0A0F1E] mb-3">AGENDA</span>
-          <p class="text-[13.5px] font-light text-gray-400 leading-relaxed">Identifica huecos de baja ocupación y los rellena de forma automática proponiendo horarios óptimos a pacientes pendientes.</p>
-        </div>
-        <div class="absolute -top-4 -right-4 w-32 h-32 rounded-full bg-[#06B6D4]/10 blur-3xl group-hover:bg-[#06B6D4]/20 transition-all duration-500"></div>
-        <span class="relative z-10 text-[11px] text-[#2563EB] font-semibold tracking-[0.1em]">EXPLORAR →</span>
-      </div>
-
-      <!-- INSIGHTS -->
-      <div class="group relative bg-[#0A0F1E] p-10 min-h-[320px] flex flex-col justify-between overflow-hidden cursor-pointer reveal border border-[#0A0F1E]">
-        <div class="relative z-10">
-          <svg class="tech-icon"><use href="#iconInsights"/></svg>
-          <span class="block text-[28px] font-bold tracking-[0.06em] text-white mb-3">INSIGHTS</span>
-          <p class="text-[13.5px] font-light text-white/55 leading-relaxed">Visualiza ingresos, retención, no-shows y patrones de consulta en tiempo real para tomar mejores decisiones clínicas.</p>
-        </div>
-        <div class="absolute inset-0 bg-gradient-to-br from-[#14B8A6]/15 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"></div>
-        <div class="absolute -bottom-4 -right-4 w-24 h-24 rounded-full bg-[#14B8A6]/15 blur-2xl group-hover:bg-[#14B8A6]/30 transition-all duration-500"></div>
-        <span class="relative z-10 text-[11px] text-[#06B6D4] font-semibold tracking-[0.1em] group-hover:text-white transition-colors">EXPLORAR →</span>
-      </div>
-
-      <!-- FLOW -->
-      <div class="group relative bg-white border border-gray-200 p-10 min-h-[320px] flex flex-col justify-between overflow-hidden cursor-pointer reveal hover:border-[#14B8A6]/30 hover:shadow-2xl transition-all duration-300">
-        <div class="relative z-10">
-          <svg class="tech-icon"><use href="#iconFlow"/></svg>
-          <span class="block text-[28px] font-bold tracking-[0.06em] text-[#0A0F1E] mb-3">FLOW</span>
-          <p class="text-[13.5px] font-light text-gray-400 leading-relaxed">Modelos algorítmicos que conectan tratamientos, seguimiento y reactivación para crear un loop continuo de cuidado.</p>
-        </div>
-        <div class="absolute -top-4 -right-4 w-32 h-32 rounded-full bg-[#14B8A6]/10 blur-3xl group-hover:bg-[#14B8A6]/20 transition-all duration-500"></div>
-        <span class="relative z-10 text-[11px] text-[#2563EB] font-semibold tracking-[0.1em]">EXPLORAR →</span>
-      </div>
-    </div>
-
-    <a href="#" class="inline-flex items-center gap-2 text-[13px] font-semibold tracking-[0.1em] text-[#0A0F1E] border-b border-[#0A0F1E]/30 pb-0.5 uppercase hover:border-[#0A0F1E] transition-colors">
-      EXPLORA NUESTRA TECNOLOGÍA &amp; IA <span class="text-base">↗</span>
-    </a>
-  </div>
-</section>
-
-<!-- ================================================================ -->
-<!-- BENTO GRID -->
-<!-- ================================================================ -->
-<section class="bg-[#050A14] py-28 overflow-hidden relative">
-  <div class="dark-grid-bg"></div>
-  <div class="max-w-[1440px] mx-auto px-20 relative z-10">
-    <div class="mb-14 reveal">
-      <div class="text-[11px] font-semibold tracking-[0.2em] text-[#06B6D4] uppercase mb-4">En Acción</div>
-      <h2 class="text-[clamp(28px,3.5vw,48px)] font-light text-white tracking-[-0.02em]">Ve a Duni trabajar<br>por ti, en tiempo real</h2>
-    </div>
-
-    <div class="bento-grid">
-      <!-- WhatsApp Mock — Large -->
-      <div class="bento-card bento-large bg-[#0D1117] border border-white/[0.06] rounded-2xl p-8 overflow-hidden relative reveal">
-        <div class="flex items-center gap-2 mb-6">
-          <svg class="w-4 h-4"><use href="#iconWhatsApp"/></svg>
-          <span class="text-[11px] font-semibold tracking-[0.15em] text-[#06B6D4] uppercase">AGENT · WhatsApp 24/7</span>
-        </div>
-        <div class="whatsapp-phone max-w-[300px] mx-auto">
-          <div class="bg-[#1F2C34] px-4 py-3 flex items-center gap-3">
-            <div class="mini-orb"><svg width="36" height="36"><use href="#duniOrbMini"/></svg></div>
-            <div>
-              <div class="text-white text-[14px] font-semibold">Duni</div>
-              <div class="text-white/50 text-[11px] flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-[#25D366] inline-block"></span>en línea</div>
-            </div>
-          </div>
-          <div id="chatSimArea" class="bg-[#0B1418] p-4 h-[280px] overflow-hidden relative">
-            <div id="chatBubbles" class="flex flex-col gap-2"></div>
-          </div>
-        </div>
-        <div class="absolute top-1/2 right-8 -translate-y-1/2 w-48 h-48 bg-[#06B6D4]/5 rounded-full blur-3xl pointer-events-none"></div>
-      </div>
-
-      <!-- Revenue Chart -->
-      <div class="bento-card bg-[#0D1117] border border-white/[0.06] rounded-2xl p-8 overflow-hidden relative reveal">
-        <div class="text-[11px] font-semibold tracking-[0.15em] text-[#14B8A6] uppercase mb-2">INSIGHTS · Ingresos recuperados</div>
-        <div class="text-[34px] font-bold text-white mb-0.5">+$1,280</div>
-        <div class="text-[13px] text-white/35 mb-7">este mes con Duni</div>
-        <div id="revenueChart" class="flex items-end gap-2 h-[140px] mb-3"></div>
-        <div class="flex justify-between">
-          <span class="text-[10px] text-white/25">Ene</span><span class="text-[10px] text-white/25">Feb</span>
-          <span class="text-[10px] text-white/25">Mar</span><span class="text-[10px] text-white/25">Abr</span>
-          <span class="text-[10px] text-white/25">May</span><span class="text-[10px] text-white/25">Jun</span>
-        </div>
-        <div class="absolute bottom-7 right-7 text-[#14B8A6] opacity-30">
-          <svg class="w-12 h-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
-          </svg>
-        </div>
-      </div>
-
-      <!-- Calendar Mock -->
-      <div class="bento-card bg-[#0D1117] border border-white/[0.06] rounded-2xl p-8 overflow-hidden relative reveal">
-        <div class="text-[11px] font-semibold tracking-[0.15em] text-[#2563EB] uppercase mb-5">AGENDA · Hoy — Martes 14</div>
-        <div id="calendarMock" class="flex flex-col gap-2"></div>
-        <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-[#2563EB]/10 rounded-full blur-3xl"></div>
-      </div>
-
-      <!-- Stats wide -->
-      <div class="bento-card bento-wide bg-gradient-to-br from-[#0D1630] via-[#0D1117] to-[#0D1A1A] border border-white/[0.06] rounded-2xl p-8 flex items-center reveal">
-        <div class="grid grid-cols-3 gap-8 w-full">
-          <div class="text-center">
-            <div class="text-[38px] font-bold text-white leading-none">38%</div>
-            <div class="text-[12px] text-white/35 mt-2">más reagendamientos</div>
-          </div>
-          <div class="text-center border-l border-r border-white/[0.08]">
-            <div class="text-[38px] font-bold text-white leading-none">3 min</div>
-            <div class="text-[12px] text-white/35 mt-2">tiempo de configuración</div>
-          </div>
-          <div class="text-center">
-            <div class="text-[38px] font-bold text-white leading-none">100%</div>
-            <div class="text-[12px] text-white/35 mt-2">LOPDP compliant</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================================================================ -->
-<!-- DUNI AI OPERATING — Unified Interactive Experience -->
-<!-- ================================================================ -->
-<section id="demo" class="bg-[#050A14] py-32 relative overflow-hidden">
-  <div class="demo-bg">
-    <div class="ambient-glow-1"></div>
-    <div class="ambient-glow-2"></div>
-  </div>
-
-  <div class="max-w-[1440px] mx-auto px-20 relative z-10">
-    <!-- Section title -->
-    <div class="text-center mb-16 reveal">
-      <div class="text-[11px] font-semibold tracking-[0.22em] text-[#06B6D4] uppercase mb-4 inline-flex items-center gap-2">
-        <svg class="w-3 h-3"><use href="#iconSparkle" fill="#06B6D4"/></svg>
-        La IA que trabaja mientras tú operas
-      </div>
-      <h2 class="text-[clamp(28px,3.8vw,52px)] font-light text-white tracking-[-0.02em] mb-4">Habla con Duni ahora</h2>
-      <p class="text-[16px] text-white/35 font-light max-w-[620px] mx-auto">Duni procesa información clínica en tiempo real, comprende el contexto de tu práctica y toma decisiones inteligentes automáticamente.</p>
-    </div>
-
-    <!-- DUNI WIDGET — Immersive AI Experience -->
-    <div class="dw-hub reveal" id="duniCinemaHub">
-
-      <!-- STATE 1: Orb dormant -->
-      <div class="dw-stage" id="cinemaOrbStage">
-
-        <!-- Outer ambient field -->
-        <div class="dw-field">
-          <div class="dw-field-ring dw-fr1"></div>
-          <div class="dw-field-ring dw-fr2"></div>
-          <div class="dw-field-ring dw-fr3"></div>
-          <div class="dw-field-ring dw-fr4"></div>
-        </div>
-
-        <!-- Central orb -->
-        <div class="dw-orb-wrap" id="cinemaOrbWrap" onclick="deployDuniChat()">
-          <!-- SVG orb — no image needed -->
-          <svg class="dw-orb-svg" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <radialGradient id="dwCoreA" cx="38%" cy="32%" r="68%">
-                <stop offset="0%" stop-color="#A5F3FC"/>
-                <stop offset="30%" stop-color="#22D3EE"/>
-                <stop offset="65%" stop-color="#2563EB"/>
-                <stop offset="100%" stop-color="#0F172A"/>
-              </radialGradient>
-              <radialGradient id="dwGlowA" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stop-color="#06B6D4" stop-opacity="0.7"/>
-                <stop offset="55%" stop-color="#2563EB" stop-opacity="0.2"/>
-                <stop offset="100%" stop-color="#2563EB" stop-opacity="0"/>
-              </radialGradient>
-              <filter id="dwSoft">
-                <feGaussianBlur stdDeviation="3"/>
-              </filter>
-              <filter id="dwGlare">
-                <feGaussianBlur stdDeviation="1.5"/>
-              </filter>
-            </defs>
-            <!-- Glow halo -->
-            <circle cx="150" cy="150" r="140" fill="url(#dwGlowA)" filter="url(#dwSoft)"/>
-            <!-- Core sphere -->
-            <circle cx="150" cy="150" r="100" fill="url(#dwCoreA)"/>
-            <!-- Specular highlight main -->
-            <ellipse cx="118" cy="112" rx="28" ry="18" fill="#fff" opacity="0.45" filter="url(#dwGlare)"/>
-            <!-- Specular pinpoint -->
-            <ellipse cx="125" cy="118" rx="10" ry="6" fill="#fff" opacity="0.75"/>
-            <!-- Rim light bottom -->
-            <ellipse cx="175" cy="215" rx="22" ry="10" fill="#67E8F9" opacity="0.18" filter="url(#dwSoft)"/>
-            <!-- Orbital ring 1 -->
-            <ellipse cx="150" cy="150" rx="130" ry="26" fill="none" stroke="url(#dwRingA)" stroke-width="1" opacity="0.5" class="dw-ring-spin-1"/>
-            <!-- Orbital ring 2 -->
-            <ellipse cx="150" cy="150" rx="26" ry="130" fill="none" stroke="#3B82F6" stroke-width="0.8" opacity="0.3" stroke-dasharray="6 10" class="dw-ring-spin-2"/>
-            <!-- Particle dots -->
-            <circle cx="150" cy="22" r="3.5" fill="#67E8F9" class="dw-particle-1"/>
-            <circle cx="278" cy="150" r="2.5" fill="#A78BFA" class="dw-particle-2"/>
-            <circle cx="150" cy="278" r="3" fill="#22D3EE" class="dw-particle-3"/>
-            <circle cx="22" cy="150" r="2" fill="#60A5FA" class="dw-particle-4"/>
-            <defs>
-              <linearGradient id="dwRingA" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stop-color="#06B6D4" stop-opacity="0"/>
-                <stop offset="50%" stop-color="#67E8F9" stop-opacity="1"/>
-                <stop offset="100%" stop-color="#06B6D4" stop-opacity="0"/>
-              </linearGradient>
-            </defs>
-          </svg>
-
-          <!-- Click ripple -->
-          <div class="dw-ripple"></div>
-          <div class="dw-ripple dw-ripple-2"></div>
-
-          <!-- CTA label -->
-          <div class="dw-cta">
-            <div class="dw-cta-inner">
-              <span class="dw-cta-dot"></span>
-              <span>Activar Duni</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Floating stats -->
-        <div class="dw-stat dw-stat-a">
-          <div class="dw-stat-icon">
-            <svg viewBox="0 0 16 16" fill="none" class="w-3 h-3"><path d="M8 3v5l3 2" stroke="#22D3EE" stroke-width="1.5" stroke-linecap="round"/><circle cx="8" cy="8" r="6.5" stroke="#22D3EE" stroke-width="1"/></svg>
-          </div>
-          <div>
-            <div class="dw-stat-val">24/7</div>
-            <div class="dw-stat-lbl">Disponible</div>
-          </div>
-        </div>
-
-        <div class="dw-stat dw-stat-b">
-          <div class="dw-stat-icon">
-            <svg viewBox="0 0 16 16" fill="none" class="w-3 h-3"><path d="M2 11l4-4 3 3 5-6" stroke="#A78BFA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <div>
-            <div class="dw-stat-val">+38%</div>
-            <div class="dw-stat-lbl">Reagendamientos</div>
-          </div>
-        </div>
-
-        <div class="dw-stat dw-stat-c">
-          <div class="dw-stat-icon">
-            <svg viewBox="0 0 16 16" fill="none" class="w-3 h-3"><circle cx="8" cy="8" r="3" fill="#14B8A6"/><circle cx="8" cy="8" r="6.5" stroke="#14B8A6" stroke-width="1" stroke-dasharray="3 3"/></svg>
-          </div>
-          <div>
-            <div class="dw-stat-val">3 min</div>
-            <div class="dw-stat-lbl">Setup</div>
-          </div>
-        </div>
-
-        <div class="dw-stat dw-stat-d">
-          <div class="dw-stat-icon">
-            <svg viewBox="0 0 16 16" fill="none" class="w-3 h-3"><rect x="2" y="6" width="3" height="8" rx="1" fill="#F59E0B"/><rect x="6.5" y="3" width="3" height="11" rx="1" fill="#F59E0B"/><rect x="11" y="1" width="3" height="13" rx="1" fill="#F59E0B"/></svg>
-          </div>
-          <div>
-            <div class="dw-stat-val">$640</div>
-            <div class="dw-stat-lbl">Hoy recuperado</div>
-          </div>
-        </div>
-
-      </div><!-- /dw-stage -->
-
-      <!-- STATE 2: Chat deployed -->
-      <div class="dw-chat-panel" id="cinemaChatPanel">
-
-        <!-- Background orb ghost -->
-        <div class="dw-ghost-orb">
-          <svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <radialGradient id="dwGhostGrad" cx="38%" cy="32%" r="68%">
-                <stop offset="0%" stop-color="#A5F3FC"/>
-                <stop offset="30%" stop-color="#22D3EE"/>
-                <stop offset="65%" stop-color="#2563EB"/>
-                <stop offset="100%" stop-color="#0F172A"/>
-              </radialGradient>
-            </defs>
-            <circle cx="150" cy="150" r="140" fill="rgba(6,182,212,0.08)"/>
-            <circle cx="150" cy="150" r="100" fill="url(#dwGhostGrad)" opacity="0.5"/>
-            <ellipse cx="118" cy="112" rx="28" ry="18" fill="#fff" opacity="0.2"/>
-          </svg>
-        </div>
-
-        <!-- Chat window -->
-        <div class="dw-window" id="cinemaChatWindow">
-
-          <!-- Top chrome bar with scan line effect -->
-          <div class="dw-chrome">
-            <div class="dw-chrome-scan"></div>
-            <div class="dw-chrome-left">
-              <div class="dw-avatar">
-                <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-                  <defs>
-                    <radialGradient id="avGrad" cx="38%" cy="32%" r="68%">
-                      <stop offset="0%" stop-color="#A5F3FC"/>
-                      <stop offset="50%" stop-color="#2563EB"/>
-                      <stop offset="100%" stop-color="#0F172A"/>
-                    </radialGradient>
-                  </defs>
-                  <circle cx="20" cy="20" r="19" fill="url(#avGrad)"/>
-                  <ellipse cx="15" cy="14" rx="5" ry="3.5" fill="#fff" opacity="0.5"/>
-                </svg>
-                <span class="dw-av-live"></span>
-              </div>
-              <div class="dw-chrome-info">
-                <div class="dw-chrome-name">
-                  <svg style="width:80px;height:28px" viewBox="0 0 280 100"><use href="#duniWordmark"/></svg>
-                </div>
-                <div class="dw-chrome-status">
-                  <span class="dw-status-dot"></span>
-                  <span>Procesando tu práctica · en vivo</span>
-                </div>
-              </div>
-            </div>
-            <div class="dw-chrome-right">
-              <div class="dw-signal-bars">
-                <span></span><span></span><span></span><span></span>
-              </div>
-              <button class="dw-close" onclick="closeDuniChat()">
-                <svg viewBox="0 0 20 20" fill="none" class="w-4 h-4"><path d="M5 5l10 10M15 5L5 15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-              </button>
-            </div>
-          </div>
-
-          <!-- Context strip -->
-          <div class="dw-context-strip">
-            <div class="dw-ctx-item">
-              <svg viewBox="0 0 14 14" fill="none" class="w-3 h-3"><rect x="1" y="2" width="12" height="11" rx="1.5" stroke="#06B6D4" stroke-width="1"/><path d="M4 0v3M10 0v3M1 5h12" stroke="#06B6D4" stroke-width="1" stroke-linecap="round"/></svg>
-              <span>8 citas hoy</span>
-            </div>
-            <div class="dw-ctx-sep"></div>
-            <div class="dw-ctx-item">
-              <svg viewBox="0 0 14 14" fill="none" class="w-3 h-3"><circle cx="7" cy="5" r="3" stroke="#14B8A6" stroke-width="1"/><path d="M2 13c0-2.76 2.24-5 5-5s5 2.24 5 5" stroke="#14B8A6" stroke-width="1" stroke-linecap="round"/></svg>
-              <span>847 pacientes</span>
-            </div>
-            <div class="dw-ctx-sep"></div>
-            <div class="dw-ctx-item">
-              <svg viewBox="0 0 14 14" fill="none" class="w-3 h-3"><path d="M1 10l3.5-4 3 3L11 4l2 2" stroke="#A78BFA" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span>$2,840 / mes</span>
-            </div>
-          </div>
-
-          <!-- Messages area -->
-          <div id="cinemaMsgs" class="dw-msgs">
-            <div class="dw-msg dw-msg-ai">
-              <div class="dw-msg-av">
-                <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                  <defs>
-                    <radialGradient id="msgAvGrad" cx="38%" cy="32%" r="68%">
-                      <stop offset="0%" stop-color="#A5F3FC"/>
-                      <stop offset="50%" stop-color="#2563EB"/>
-                      <stop offset="100%" stop-color="#0F172A"/>
-                    </radialGradient>
-                  </defs>
-                  <circle cx="16" cy="16" r="15" fill="url(#msgAvGrad)"/>
-                  <ellipse cx="12" cy="11" rx="4" ry="2.5" fill="#fff" opacity="0.45"/>
-                </svg>
-              </div>
-              <div class="dw-msg-body">
-                <div class="dw-msg-bubble">
-                  <p>¡Hola, Doctor/a! Soy <strong>Duni</strong>. Tengo acceso en tiempo real a tu agenda, pacientes y métricas. ¿En qué te ayudo ahora?</p>
-                </div>
-                <div class="dw-chips">
-                  <button onclick="cinemaSuggest(this)" class="dw-chip">¿Qué pasó hoy?</button>
-                  <button onclick="cinemaSuggest(this)" class="dw-chip">Ingresos del mes</button>
-                  <button onclick="cinemaSuggest(this)" class="dw-chip">Cancelaciones</button>
-                  <button onclick="cinemaSuggest(this)" class="dw-chip">Próximas citas</button>
-                </div>
-                <div class="dw-msg-time">ahora</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Input zone -->
-          <div class="dw-input-zone">
-            <div class="dw-input-glow-track">
-              <div class="dw-input-row">
-                <input
-                  id="cinemaInput"
-                  type="text"
-                  class="dw-input"
-                  placeholder="Pregúntale algo a Duni..."
-                  onkeydown="if(event.key==='Enter') cinemaSubmit()"
-                  autocomplete="off"
-                />
-                <button onclick="cinemaSubmit()" class="dw-send" id="cinemaSendBtn">
-                  <svg viewBox="0 0 24 24" fill="none" class="w-5 h-5">
-                    <path d="M22 2L11 13" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M22 2L15 22l-4-9-9-4 20-7z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </button>
-              </div>
-            </div>
-            <div class="dw-input-hint">Presiona Enter para enviar · Potenciado por Duni IA</div>
-          </div>
-
-        </div><!-- /dw-window -->
-      </div><!-- /dw-chat-panel -->
-
-    </div><!-- /dw-hub -->
-
-    <!-- Old hidden containers for backward compat (no visual) -->
-    <div style="display:none">
-      <div class="chat-reveal-container">
-        <div class="chat-bubble-main">
-          <div class="chat-header"><div class="duni-status"></div></div>
-          <div id="demoMessages" class="chat-messages"></div>
-          <div class="chat-input-area">
-            <div class="demo-input-wrap">
-              <input id="demoInput" type="text" placeholder="Pregúntale a Duni..." onkeydown="if(event.key==='Enter') sendDemo()">
-            </div>
-            <button onclick="sendDemo()" class="demo-send-btn">
-              <svg class="send-icon" viewBox="0 0 24 24"><use href="#iconSend"/></svg>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <p class="text-center text-[11px] text-white/20 mt-8 tracking-widest uppercase">Demo simulado · Datos de ejemplo</p>
-  </div>
-</section>
-
-<!-- ================================================================ -->
-<!-- EXPLORE TABS — with custom SVG scenes -->
-<!-- ================================================================ -->
-<section id="explore" class="bg-[#F9FAFB] py-28">
-  <div class="max-w-[1440px] mx-auto px-20">
-    <h2 class="text-[clamp(28px,3vw,48px)] font-light text-[#0A0F1E] mb-10 tracking-[-0.02em] reveal">Explora Duni</h2>
-    <div class="explore-tabs-bar flex gap-0 border-b border-gray-200 mb-16">
-      <button class="explore-tab active" data-tab="dentistas" onclick="switchTab('dentistas')">DENTISTAS</button>
-      <button class="explore-tab" data-tab="clinicas" onclick="switchTab('clinicas')">CLÍNICAS</button>
-      <button class="explore-tab" data-tab="pacientes" onclick="switchTab('pacientes')">PACIENTES</button>
-    </div>
-
-    <!-- DENTISTAS PANEL -->
-    <div class="explore-panel active" id="panel-dentistas">
-      <div class="grid grid-cols-2 gap-20 items-center">
-        <div>
-          <p class="text-[clamp(20px,2.5vw,34px)] font-light leading-[1.4] text-[#0A0F1E] mb-8">Ayudamos a odontólogos independientes a tomar mejores decisiones clínicas y de negocio.</p>
-          <a href="#" class="text-[13px] font-semibold tracking-[0.1em] text-[#0A0F1E] border-b border-[#0A0F1E]/40 pb-0.5 uppercase hover:border-[#0A0F1E] transition-colors">CONOCER MÁS →</a>
-        </div>
-        <div class="explore-scene explore-scene-1">
-          <div class="scene-art">
-            <svg viewBox="0 0 240 240">
-              <!-- Outer orbit ring -->
-              <circle class="scene-orbit" cx="120" cy="120" r="100" fill="none" stroke="#06B6D4" stroke-width="0.5" stroke-dasharray="2 4" opacity="0.3"/>
-              <circle class="scene-orbit-rev" cx="120" cy="120" r="80" fill="none" stroke="#06B6D4" stroke-width="0.4" stroke-dasharray="40 20" opacity="0.4"/>
-              <!-- Dentist silhouette (abstract) -->
-              <g class="scene-pulse">
-                <!-- Head -->
-                <circle cx="120" cy="92" r="22" fill="url(#orbCoreGrad)" opacity="0.95"/>
-                <!-- Body/coat -->
-                <path d="M 80 200 Q 80 130 120 130 Q 160 130 160 200 Z" fill="url(#orbCoreGrad)" opacity="0.85"/>
-                <!-- Mask line -->
-                <rect x="103" y="95" width="34" height="9" rx="2" fill="#0A0F1E" opacity="0.4"/>
-                <!-- Coat collar V -->
-                <path d="M 110 132 L 120 150 L 130 132" fill="#0A0F1E" opacity="0.35"/>
-              </g>
-              <!-- Floating data nodes around dentist -->
-              <g class="scene-orbit">
-                <circle cx="200" cy="120" r="4" fill="#67E8F9"/>
-                <circle cx="200" cy="120" r="2" fill="#fff"/>
-                <text x="210" y="124" font-size="8" fill="#67E8F9" opacity="0.7">+12 citas</text>
-              </g>
-              <g class="scene-orbit-rev">
-                <circle cx="40" cy="120" r="3.5" fill="#14B8A6"/>
-                <circle cx="40" cy="120" r="1.8" fill="#fff"/>
-                <text x="6" y="124" font-size="8" fill="#14B8A6" opacity="0.7">$480</text>
-              </g>
-              <g class="scene-orbit">
-                <circle cx="120" cy="40" r="3" fill="#A78BFA"/>
-              </g>
-              <!-- Connection lines from dentist to nodes -->
-              <line x1="120" y1="120" x2="200" y2="120" stroke="#06B6D4" stroke-width="0.4" opacity="0.3" stroke-dasharray="2 2"/>
-              <line x1="120" y1="120" x2="40" y2="120" stroke="#06B6D4" stroke-width="0.4" opacity="0.3" stroke-dasharray="2 2"/>
-            </svg>
-          </div>
-          <div class="absolute bottom-4 left-4 text-white/30 text-[10px] tracking-[0.2em] uppercase">Odontólogo Independiente</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- CLÍNICAS PANEL -->
-    <div class="explore-panel hidden" id="panel-clinicas">
-      <div class="grid grid-cols-2 gap-20 items-center">
-        <div>
-          <p class="text-[clamp(20px,2.5vw,34px)] font-light leading-[1.4] text-[#0A0F1E] mb-8">Asistimos a clínicas y grupos odontológicos a escalar la atención sin perder calidad.</p>
-          <a href="#" class="text-[13px] font-semibold tracking-[0.1em] text-[#0A0F1E] border-b border-[#0A0F1E]/40 pb-0.5 uppercase hover:border-[#0A0F1E] transition-colors">CONOCER MÁS →</a>
-        </div>
-        <div class="explore-scene explore-scene-2">
-          <div class="scene-art">
-            <svg viewBox="0 0 240 240">
-              <circle class="scene-orbit" cx="120" cy="120" r="105" fill="none" stroke="#14B8A6" stroke-width="0.5" stroke-dasharray="3 5" opacity="0.25"/>
-              <!-- Three building blocks (clinics) -->
-              <g class="scene-pulse">
-                <!-- Center main building -->
-                <rect x="100" y="80" width="40" height="80" rx="3" fill="url(#iconGrad)" opacity="0.95"/>
-                <rect x="106" y="92" width="6" height="8" fill="#0A0F1E" opacity="0.4"/>
-                <rect x="116" y="92" width="6" height="8" fill="#0A0F1E" opacity="0.4"/>
-                <rect x="128" y="92" width="6" height="8" fill="#0A0F1E" opacity="0.4"/>
-                <rect x="106" y="106" width="6" height="8" fill="#0A0F1E" opacity="0.4"/>
-                <rect x="116" y="106" width="6" height="8" fill="#0A0F1E" opacity="0.4"/>
-                <rect x="128" y="106" width="6" height="8" fill="#0A0F1E" opacity="0.4"/>
-                <rect x="106" y="120" width="6" height="8" fill="#67E8F9" opacity="0.7"/>
-                <rect x="116" y="120" width="6" height="8" fill="#0A0F1E" opacity="0.4"/>
-                <rect x="128" y="120" width="6" height="8" fill="#67E8F9" opacity="0.7"/>
-                <!-- Roof/banner -->
-                <rect x="98" y="74" width="44" height="6" rx="1" fill="#0A0F1E" opacity="0.6"/>
-                <circle cx="120" cy="77" r="1.5" fill="#67E8F9"/>
-              </g>
-              <!-- Side building 1 -->
-              <g class="scene-pulse" style="animation-delay:0.3s">
-                <rect x="40" y="105" width="32" height="55" rx="3" fill="url(#iconGrad)" opacity="0.7"/>
-                <rect x="46" y="115" width="5" height="6" fill="#0A0F1E" opacity="0.4"/>
-                <rect x="55" y="115" width="5" height="6" fill="#0A0F1E" opacity="0.4"/>
-                <rect x="64" y="115" width="5" height="6" fill="#67E8F9" opacity="0.6"/>
-                <rect x="46" y="125" width="5" height="6" fill="#0A0F1E" opacity="0.4"/>
-                <rect x="55" y="125" width="5" height="6" fill="#0A0F1E" opacity="0.4"/>
-                <rect x="64" y="125" width="5" height="6" fill="#0A0F1E" opacity="0.4"/>
-              </g>
-              <!-- Side building 2 -->
-              <g class="scene-pulse" style="animation-delay:0.6s">
-                <rect x="168" y="100" width="32" height="60" rx="3" fill="url(#iconGrad)" opacity="0.7"/>
-                <rect x="174" y="110" width="5" height="6" fill="#0A0F1E" opacity="0.4"/>
-                <rect x="183" y="110" width="5" height="6" fill="#67E8F9" opacity="0.6"/>
-                <rect x="192" y="110" width="5" height="6" fill="#0A0F1E" opacity="0.4"/>
-                <rect x="174" y="120" width="5" height="6" fill="#0A0F1E" opacity="0.4"/>
-                <rect x="183" y="120" width="5" height="6" fill="#0A0F1E" opacity="0.4"/>
-                <rect x="192" y="120" width="5" height="6" fill="#0A0F1E" opacity="0.4"/>
-              </g>
-              <!-- Connection lines -->
-              <line x1="72" y1="130" x2="100" y2="130" stroke="#14B8A6" stroke-width="0.6" stroke-dasharray="3 2" opacity="0.5"/>
-              <line x1="140" y1="130" x2="168" y2="130" stroke="#14B8A6" stroke-width="0.6" stroke-dasharray="3 2" opacity="0.5"/>
-              <!-- Data flow particles -->
-              <g class="scene-orbit">
-                <circle cx="86" cy="130" r="2" fill="#67E8F9"/>
-              </g>
-              <g class="scene-orbit-rev">
-                <circle cx="154" cy="130" r="2" fill="#67E8F9"/>
-              </g>
-            </svg>
-          </div>
-          <div class="absolute bottom-4 left-4 text-white/30 text-[10px] tracking-[0.2em] uppercase">Clínica Multi-Sede</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- PACIENTES PANEL -->
-    <div class="explore-panel hidden" id="panel-pacientes">
-      <div class="grid grid-cols-2 gap-20 items-center">
-        <div>
-          <p class="text-[clamp(20px,2.5vw,34px)] font-light leading-[1.4] text-[#0A0F1E] mb-8">Ayudamos a los pacientes a encontrar el tratamiento adecuado en el momento adecuado.</p>
-          <a href="#" class="text-[13px] font-semibold tracking-[0.1em] text-[#0A0F1E] border-b border-[#0A0F1E]/40 pb-0.5 uppercase hover:border-[#0A0F1E] transition-colors">CONOCER MÁS →</a>
-        </div>
-        <div class="explore-scene explore-scene-3">
-          <div class="scene-art">
-            <svg viewBox="0 0 240 240">
-              <circle class="scene-orbit" cx="120" cy="120" r="100" fill="none" stroke="#A78BFA" stroke-width="0.5" stroke-dasharray="2 5" opacity="0.3"/>
-              <!-- Patient figure (left) -->
-              <g class="scene-pulse">
-                <circle cx="65" cy="100" r="18" fill="url(#iconGrad)" opacity="0.85"/>
-                <path d="M 38 200 Q 38 145 65 145 Q 92 145 92 200 Z" fill="url(#iconGrad)" opacity="0.75"/>
-              </g>
-              <!-- Chat bubble from patient -->
-              <g>
-                <path d="M 100 90 Q 100 75 115 75 L 145 75 Q 160 75 160 90 L 160 105 Q 160 120 145 120 L 130 120 L 122 130 L 124 120 L 115 120 Q 100 120 100 105 Z"
-                      fill="#1A2332" stroke="#06B6D4" stroke-width="0.5" opacity="0.85"/>
-                <text x="113" y="98" font-size="7" fill="#67E8F9" opacity="0.9">¿Cita</text>
-                <text x="113" y="108" font-size="7" fill="#67E8F9" opacity="0.9">disponible?</text>
-              </g>
-              <!-- Duni Orb on the right responding -->
-              <g class="scene-pulse">
-                <circle cx="195" cy="120" r="22" fill="url(#orbGlowGrad)" opacity="0.7"/>
-                <circle cx="195" cy="120" r="14" fill="url(#orbCoreGrad)"/>
-                <circle cx="190" cy="115" r="3" fill="#fff" opacity="0.5"/>
-              </g>
-              <g class="scene-orbit">
-                <circle cx="195" cy="98" r="1.5" fill="#67E8F9"/>
-              </g>
-              <g class="scene-orbit-rev">
-                <circle cx="195" cy="142" r="1.5" fill="#A78BFA"/>
-              </g>
-              <!-- Connection wave from orb to patient -->
-              <path d="M 178 120 Q 145 130 100 120" fill="none" stroke="#06B6D4" stroke-width="0.5" stroke-dasharray="3 2" opacity="0.4"/>
-              <!-- Confirmation badge -->
-              <g transform="translate(140, 165)">
-                <rect x="-30" y="-10" width="60" height="20" rx="10" fill="#14B8A6" opacity="0.2" stroke="#14B8A6" stroke-width="0.5"/>
-                <text x="0" y="3" text-anchor="middle" font-size="8" fill="#14B8A6" font-weight="600">✓ AGENDADO</text>
-              </g>
-            </svg>
-          </div>
-          <div class="absolute bottom-4 left-4 text-white/30 text-[10px] tracking-[0.2em] uppercase">Experiencia del Paciente</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================================================================ -->
-<!-- CASOS DE ÉXITO -->
-<!-- ================================================================ -->
-<section class="bg-white py-28">
-  <div class="max-w-[1440px] mx-auto px-20">
-    <div class="flex items-end justify-between mb-16 gap-10 reveal">
-      <div>
-        <div class="text-[11px] font-semibold tracking-[0.2em] text-[#2563EB] uppercase mb-4">Resultados Reales</div>
-        <p class="text-[clamp(16px,2vw,22px)] font-light leading-[1.5] text-gray-500 max-w-[580px]">A través de casos reales y resultados medibles, transformamos la manera en que los odontólogos atienden a sus pacientes.</p>
-      </div>
-      <a href="#" class="text-[13px] font-semibold tracking-[0.08em] text-[#0A0F1E] whitespace-nowrap border-b border-[#0A0F1E]/30 pb-0.5 hover:border-[#0A0F1E] transition-colors shrink-0">VER TODOS LOS CASOS →</a>
-    </div>
-
-    <div class="grid grid-cols-3 gap-8">
-      <article class="reveal bg-[#F9FAFB] border border-gray-100 p-10 rounded-2xl hover:border-[#2563EB]/20 hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-400 flex flex-col gap-4">
-        <div class="text-[10px] font-bold tracking-[0.15em] text-[#2563EB] uppercase">CASO DE ÉXITO</div>
-        <h3 class="text-[16px] font-medium leading-[1.5] text-[#0A0F1E]">Duni Aumenta en 38% la Tasa de Reagendamiento de Pacientes Odontológicos</h3>
-        <p class="text-[13px] font-light leading-[1.7] text-gray-400 flex-1">El perfilado conversacional combinado con datos clínicos identifica oportunidades de tratamiento perdidas en la mayoría de las prácticas independientes.</p>
-        <a href="#" class="text-[12px] font-semibold tracking-[0.08em] text-gray-300 hover:text-[#0A0F1E] transition-colors">LEER MÁS →</a>
-      </article>
-      <article class="reveal bg-[#F9FAFB] border border-gray-100 p-10 rounded-2xl hover:border-[#06B6D4]/20 hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-400 flex flex-col gap-4">
-        <div class="text-[10px] font-bold tracking-[0.15em] text-[#06B6D4] uppercase">ODONTOLOGÍA DE PRECISIÓN</div>
-        <h3 class="text-[16px] font-medium leading-[1.5] text-[#0A0F1E]">Plataforma Conversacional para Práctica Odontológica de Precisión</h3>
-        <p class="text-[13px] font-light leading-[1.7] text-gray-400 flex-1">Fidelidad conversacional y clínica demostrada en más de 1,000 pacientes evaluados en prácticas odontológicas de Latinoamérica.</p>
-        <a href="#" class="text-[12px] font-semibold tracking-[0.08em] text-gray-300 hover:text-[#0A0F1E] transition-colors">LEER MÁS →</a>
-      </article>
-      <article class="reveal bg-[#F9FAFB] border border-gray-100 p-10 rounded-2xl hover:border-[#14B8A6]/20 hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-400 flex flex-col gap-4">
-        <div class="text-[10px] font-bold tracking-[0.15em] text-[#14B8A6] uppercase">SEGUIMIENTO INTELIGENTE</div>
-        <h3 class="text-[16px] font-medium leading-[1.5] text-[#0A0F1E]">Validación de Sistema de Seguimiento Automatizado con Perfilado Clínico</h3>
-        <p class="text-[13px] font-light leading-[1.7] text-gray-400 flex-1">Las oportunidades de reactivación se habrían perdido si solo se utilizaran sistemas tradicionales de recordatorio de citas.</p>
-        <a href="#" class="text-[12px] font-semibold tracking-[0.08em] text-gray-300 hover:text-[#0A0F1E] transition-colors">LEER MÁS →</a>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ================================================================ -->
-<!-- LOPDP / SECURITY -->
-<!-- ================================================================ -->
-<section class="bg-[#050A14] py-20 relative overflow-hidden">
-  <div class="dark-grid-bg"></div>
-  <div class="max-w-[1440px] mx-auto px-20 relative z-10">
-    <div class="border border-white/[0.07] rounded-2xl p-16 grid grid-cols-[1fr_auto] gap-16 items-center reveal bg-gradient-to-br from-[#0A0F1E]/80 to-[#050A14]/80 backdrop-blur-sm">
-      <div>
-        <div class="text-[10px] font-bold tracking-[0.15em] text-[#14B8A6] uppercase mb-4 flex items-center gap-2">
-          <svg class="w-3 h-3"><use href="#iconSparkle" fill="#14B8A6"/></svg>
-          COMUNICADO OFICIAL · CADIHEALTH S.A.S. · RUC 1793236473001
-        </div>
-        <h3 class="text-[clamp(20px,2.5vw,36px)] font-light leading-[1.4] text-white mb-4">
-          Duni obtiene Certificación LOPDP y se posiciona como la plataforma de IA dental más segura de Latinoamérica
-        </h3>
-        <p class="text-[14px] font-light leading-[1.8] text-white/40 max-w-[580px]">
-          Operado por CADIHEALTH S.A.S. bajo la Ley Orgánica de Protección de Datos Personales del Ecuador. Cifrado AES-256 en reposo, transmisiones SSL/TLS 1.2+, y derechos ARCO garantizados. Cumplimiento total con los lineamientos del MSP y Formulario 033. Contacto: gerencia@cadihealth.com
+        <h3 class="text-xl font-semibold mb-2 tracking-tight">ACCELERATE</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">
+          Scale your practice faster with automation that handles routine tasks and follows your clinical protocols.
         </p>
       </div>
-      <a href="#" class="border-2 border-white text-white px-8 py-4 text-[11px] font-bold tracking-[0.12em] uppercase hover:bg-white hover:text-[#050A14] transition-all duration-300 whitespace-nowrap">LEER COMUNICADO ↗</a>
-    </div>
-  </div>
-</section>
 
-<!-- ================================================================ -->
-<!-- PRICING -->
-<!-- ================================================================ -->
-<section id="precios" class="bg-[#F9FAFB] py-28">
-  <div class="max-w-[1440px] mx-auto px-20">
-    <div class="text-center mb-16 reveal">
-      <div class="text-[11px] font-semibold tracking-[0.2em] text-[#2563EB] uppercase mb-4">Precios</div>
-      <h2 class="text-[clamp(28px,3.5vw,48px)] font-light text-[#0A0F1E] tracking-[-0.02em]">Empieza gratis, escala cuando quieras</h2>
-    </div>
-    <div class="grid grid-cols-3 gap-6 max-w-[960px] mx-auto">
-      <div class="reveal bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-        <div class="text-[11px] font-semibold tracking-[0.12em] text-gray-400 uppercase mb-3">Starter</div>
-        <div class="flex items-end gap-1 mb-1"><span class="text-[44px] font-bold text-[#0A0F1E] leading-none">$0</span></div>
-        <div class="text-[13px] text-gray-400 mb-8">/ mes · 14 días gratis</div>
-        <ul class="flex flex-col gap-3 mb-10">
-          <li class="flex items-center gap-3 text-[13px] text-gray-600"><span class="text-[#14B8A6] font-bold">✓</span> 50 mensajes / mes</li>
-          <li class="flex items-center gap-3 text-[13px] text-gray-600"><span class="text-[#14B8A6] font-bold">✓</span> 1 canal WhatsApp</li>
-          <li class="flex items-center gap-3 text-[13px] text-gray-600"><span class="text-[#14B8A6] font-bold">✓</span> Agenda básica</li>
-          <li class="flex items-center gap-3 text-[13px] text-gray-300"><span class="text-gray-200 font-bold">○</span> Analytics avanzados</li>
-        </ul>
-        <a href="#" class="block text-center border border-gray-200 py-3 text-[13px] font-semibold text-[#0A0F1E] hover:border-[#0A0F1E] hover:bg-[#0A0F1E] hover:text-white transition-all duration-300 rounded-xl">Comenzar Gratis</a>
+      <div class="flex flex-col items-start">
+        <div class="w-12 h-12 bg-cyan-400/20 rounded-lg flex items-center justify-center mb-4">
+          <span class="text-2xl">🛡️</span>
+        </div>
+        <h3 class="text-xl font-semibold mb-2 tracking-tight">PROTECT</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">
+          Enterprise-grade security and compliance keeping patient data safe and your practice protected.
+        </p>
       </div>
-      <div class="reveal bg-[#0A0F1E] rounded-2xl p-8 relative shadow-2xl -mt-4 -mb-4">
-        <div class="absolute top-5 right-5 bg-[#2563EB] text-white text-[10px] font-bold tracking-[0.12em] px-3 py-1 rounded-full">POPULAR</div>
-        <div class="text-[11px] font-semibold tracking-[0.12em] text-[#06B6D4] uppercase mb-3">Pro</div>
-        <div class="flex items-end gap-1 mb-1"><span class="text-[44px] font-bold text-white leading-none">$49</span></div>
-        <div class="text-[13px] text-white/35 mb-8">/ mes · todo incluido</div>
-        <ul class="flex flex-col gap-3 mb-10">
-          <li class="flex items-center gap-3 text-[13px] text-white/65"><span class="text-[#06B6D4] font-bold">✓</span> Mensajes ilimitados</li>
-          <li class="flex items-center gap-3 text-[13px] text-white/65"><span class="text-[#06B6D4] font-bold">✓</span> 3 canales WhatsApp</li>
-          <li class="flex items-center gap-3 text-[13px] text-white/65"><span class="text-[#06B6D4] font-bold">✓</span> Agenda inteligente</li>
-          <li class="flex items-center gap-3 text-[13px] text-white/65"><span class="text-[#06B6D4] font-bold">✓</span> Analytics completos</li>
-          <li class="flex items-center gap-3 text-[13px] text-white/65"><span class="text-[#06B6D4] font-bold">✓</span> Recuperación de ingresos</li>
-        </ul>
-        <a href="#" class="block text-center bg-[#2563EB] hover:bg-[#1D4ED8] text-white py-3 text-[13px] font-semibold transition-all duration-300 rounded-xl hover:shadow-[0_8px_32px_rgba(37,99,235,0.45)]">Empezar Ahora</a>
+
+      <div class="flex flex-col items-start">
+        <div class="w-12 h-12 bg-cyan-400/20 rounded-lg flex items-center justify-center mb-4">
+          <span class="text-2xl">🔍</span>
+        </div>
+        <h3 class="text-xl font-semibold mb-2 tracking-tight">DIAGNOSE</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">
+          AI-powered insights help identify patterns and optimize patient outcomes with precision medicine.
+        </p>
       </div>
-      <div class="reveal bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-        <div class="text-[11px] font-semibold tracking-[0.12em] text-gray-400 uppercase mb-3">Clínica</div>
-        <div class="flex items-end gap-1 mb-1"><span class="text-[44px] font-bold text-[#0A0F1E] leading-none">$149</span></div>
-        <div class="text-[13px] text-gray-400 mb-8">/ mes · multi-sede</div>
-        <ul class="flex flex-col gap-3 mb-10">
-          <li class="flex items-center gap-3 text-[13px] text-gray-600"><span class="text-[#14B8A6] font-bold">✓</span> Todo en Pro</li>
-          <li class="flex items-center gap-3 text-[13px] text-gray-600"><span class="text-[#14B8A6] font-bold">✓</span> Hasta 10 dentistas</li>
-          <li class="flex items-center gap-3 text-[13px] text-gray-600"><span class="text-[#14B8A6] font-bold">✓</span> Dashboard de clínica</li>
-          <li class="flex items-center gap-3 text-[13px] text-gray-600"><span class="text-[#14B8A6] font-bold">✓</span> Soporte prioritario</li>
-          <li class="flex items-center gap-3 text-[13px] text-gray-600"><span class="text-[#14B8A6] font-bold">✓</span> API personalizada</li>
-        </ul>
-        <a href="#" class="block text-center border border-gray-200 py-3 text-[13px] font-semibold text-[#0A0F1E] hover:border-[#0A0F1E] hover:bg-[#0A0F1E] hover:text-white transition-all duration-300 rounded-xl">Contactar Ventas</a>
+
+      <div class="flex flex-col items-start">
+        <div class="w-12 h-12 bg-cyan-400/20 rounded-lg flex items-center justify-center mb-4">
+          <span class="text-2xl">📊</span>
+        </div>
+        <h3 class="text-xl font-semibold mb-2 tracking-tight">DASHBOARD</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">
+          Real-time analytics and comprehensive reporting to measure impact and improve decision making.
+        </p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================================================================ -->
-<!-- FOOTER -->
-<!-- ================================================================ -->
-<footer class="bg-[#0A0F1E] border-t border-white/[0.05] pt-20 pb-10">
-  <div class="max-w-[1440px] mx-auto px-20">
-    <a href="#" class="duni-wordmark mb-16 inline-flex">
-      <svg style="width:160px;height:50px" viewBox="0 0 280 100"><use href="#duniWordmarkLight"/></svg>
-    </a>
-    <div class="grid grid-cols-4 gap-10 mb-16 mt-10">
+<!-- ===== PRODUCTS SECTION 1: GENOMICS AI ===== -->
+<section class="py-20 md:py-32 bg-white">
+  <div class="max-w-[1440px] mx-auto px-6 md:px-10">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
       <div>
-        <h5 class="text-[11px] font-bold tracking-[0.12em] text-white/25 uppercase mb-5">Dentistas</h5>
-        <a href="#" class="block text-[13px] text-white/45 py-1.5 hover:text-white transition-colors">Odontología General</a>
-        <a href="#" class="block text-[13px] text-white/45 py-1.5 hover:text-white transition-colors">Ortodoncia</a>
-        <a href="#" class="block text-[13px] text-white/45 py-1.5 hover:text-white transition-colors">Implantología</a>
-        <a href="#" class="block text-[13px] text-white/45 py-1.5 hover:text-white transition-colors">Cirugía Maxilofacial</a>
+        <div class="text-sm font-semibold tracking-widest text-[#2563EB] uppercase mb-2">Genomics AI</div>
+        <h2 class="text-4xl md:text-5xl font-light mb-6 tracking-tight">
+          Precision <span class="font-semibold">Genomic Analysis</span>
+        </h2>
+        <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+          Harness the power of genomic sequencing and AI-driven analysis to provide personalized treatment plans and identify genetic risk factors.
+        </p>
+        <ul class="space-y-3 mb-8">
+          <li class="flex items-center gap-3 text-gray-700">
+            <span class="text-[#06B6D4] font-bold">✓</span>
+            <span>Real-time genomic interpretation</span>
+          </li>
+          <li class="flex items-center gap-3 text-gray-700">
+            <span class="text-[#06B6D4] font-bold">✓</span>
+            <span>Personalized treatment recommendations</span>
+          </li>
+          <li class="flex items-center gap-3 text-gray-700">
+            <span class="text-[#06B6D4] font-bold">✓</span>
+            <span>Integration with clinical workflows</span>
+          </li>
+        </ul>
+        <button class="px-6 py-3 bg-[#2563EB] hover:bg-blue-700 text-white font-semibold rounded-lg transition">
+          Try Genomics AI
+        </button>
       </div>
-      <div>
-        <h5 class="text-[11px] font-bold tracking-[0.12em] text-white/25 uppercase mb-5">Clínicas</h5>
-        <a href="#" class="block text-[13px] text-white/45 py-1.5 hover:text-white transition-colors">Operaciones</a>
-        <a href="#" class="block text-[13px] text-white/45 py-1.5 hover:text-white transition-colors">Crecimiento Clínico</a>
-        <a href="#" class="block text-[13px] text-white/45 py-1.5 hover:text-white transition-colors">Comercialización</a>
-      </div>
-      <div>
-        <h5 class="text-[11px] font-bold tracking-[0.12em] text-white/25 uppercase mb-5">Pacientes</h5>
-        <a href="#" class="block text-[13px] text-white/45 py-1.5 hover:text-white transition-colors">Odontología General</a>
-        <a href="#" class="block text-[13px] text-white/45 py-1.5 hover:text-white transition-colors">Tratamientos</a>
-        <a href="#" class="block text-[13px] text-white/45 py-1.5 hover:text-white transition-colors">Ortodoncia</a>
-      </div>
-      <div>
-        <h5 class="text-[11px] font-bold tracking-[0.12em] text-white/25 uppercase mb-5">Empresa</h5>
-        <a href="#" class="block text-[13px] text-white/45 py-1.5 hover:text-white transition-colors">Nosotros</a>
-        <a href="#" class="block text-[13px] text-white/45 py-1.5 hover:text-white transition-colors">Trabaja con Nosotros</a>
-        <a href="#" class="block text-[13px] text-white/45 py-1.5 hover:text-white transition-colors">Noticias</a>
-        <a href="#" class="block text-[13px] text-white/45 py-1.5 hover:text-white transition-colors">Inversionistas</a>
+      <div class="relative">
+        <div class="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-3xl p-12 aspect-square flex items-center justify-center shadow-lg">
+          <div class="text-center">
+            <div class="text-6xl mb-4">🧬</div>
+            <p class="text-gray-600 font-semibold">Genomic Dashboard</p>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="border-t border-white/[0.05] pt-8 flex items-center justify-between gap-8 flex-wrap">
-      <p class="text-[12px] text-white/20">© 2026 CADIHEALTH S.A.S. · RUC 1793236473001 · Quito, Ecuador. Todos los derechos reservados.</p>
-      <div class="flex gap-6 shrink-0">
-        <a href="#" class="text-[12px] text-white/20 hover:text-white/60 transition-colors">Privacidad</a>
-        <a href="#" class="text-[12px] text-white/20 hover:text-white/60 transition-colors">Términos</a>
-        <a href="#" class="text-[12px] text-white/20 hover:text-white/60 transition-colors">Contacto</a>
-        <a href="#" class="text-[12px] text-white/20 hover:text-white/60 transition-colors">Instagram</a>
+  </div>
+</section>
+
+<!-- ===== PRODUCTS SECTION 2: DUNI ASSISTANT ===== -->
+<section class="py-20 md:py-32 bg-gray-50">
+  <div class="max-w-[1440px] mx-auto px-6 md:px-10">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center md:grid-flow-dense">
+      <div class="relative md:order-2">
+        <div class="bg-gradient-to-br from-blue-100 to-cyan-100 rounded-3xl p-12 aspect-square flex items-center justify-center shadow-lg">
+          <div class="text-center">
+            <div class="text-6xl mb-4">🤖</div>
+            <p class="text-gray-600 font-semibold">AI Assistant Interface</p>
+          </div>
+        </div>
+      </div>
+      <div class="md:order-1">
+        <div class="text-sm font-semibold tracking-widest text-[#2563EB] uppercase mb-2">Duni Assistant</div>
+        <h2 class="text-4xl md:text-5xl font-light mb-6 tracking-tight">
+          Intelligent <span class="font-semibold">Patient Communication</span>
+        </h2>
+        <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+          Automate patient interactions with natural language processing. Schedule appointments, send reminders, and provide health education 24/7.
+        </p>
+        <ul class="space-y-3 mb-8">
+          <li class="flex items-center gap-3 text-gray-700">
+            <span class="text-[#06B6D4] font-bold">✓</span>
+            <span>Natural language understanding</span>
+          </li>
+          <li class="flex items-center gap-3 text-gray-700">
+            <span class="text-[#06B6D4] font-bold">✓</span>
+            <span>Multi-channel support (SMS, WhatsApp, Email)</span>
+          </li>
+          <li class="flex items-center gap-3 text-gray-700">
+            <span class="text-[#06B6D4] font-bold">✓</span>
+            <span>Appointment scheduling & reminders</span>
+          </li>
+        </ul>
+        <button class="px-6 py-3 bg-[#2563EB] hover:bg-blue-700 text-white font-semibold rounded-lg transition">
+          Activate Assistant
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRODUCTS SECTION 3: CLINIC OS ===== -->
+<section class="py-20 md:py-32 bg-white">
+  <div class="max-w-[1440px] mx-auto px-6 md:px-10">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div>
+        <div class="text-sm font-semibold tracking-widest text-[#2563EB] uppercase mb-2">Clinic OS</div>
+        <h2 class="text-4xl md:text-5xl font-light mb-6 tracking-tight">
+          Complete <span class="font-semibold">Clinic Management</span>
+        </h2>
+        <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+          Unified operating system for clinics. Manage appointments, patient records, billing, and operations from a single platform with advanced analytics.
+        </p>
+        <ul class="space-y-3 mb-8">
+          <li class="flex items-center gap-3 text-gray-700">
+            <span class="text-[#06B6D4] font-bold">✓</span>
+            <span>Electronic health records (EHR)</span>
+          </li>
+          <li class="flex items-center gap-3 text-gray-700">
+            <span class="text-[#06B6D4] font-bold">✓</span>
+            <span>Appointment scheduling & management</span>
+          </li>
+          <li class="flex items-center gap-3 text-gray-700">
+            <span class="text-[#06B6D4] font-bold">✓</span>
+            <span>Billing & invoicing integration</span>
+          </li>
+        </ul>
+        <button class="px-6 py-3 bg-[#2563EB] hover:bg-blue-700 text-white font-semibold rounded-lg transition">
+          Try Clinic OS
+        </button>
+      </div>
+      <div class="relative">
+        <div class="bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl p-12 aspect-square flex items-center justify-center shadow-lg">
+          <div class="text-center">
+            <div class="text-6xl mb-4 text-cyan-400">📱</div>
+            <p class="text-white font-semibold">Clinic Dashboard</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== IMPACT & COST SECTION ===== -->
+<section class="py-20 md:py-32 bg-gray-100">
+  <div class="max-w-[1440px] mx-auto px-6 md:px-10">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-light mb-4 tracking-tight">
+        <span class="font-semibold">Impact & Cost</span>
+      </h2>
+      <p class="text-lg text-gray-600">Measurable outcomes that drive real business growth</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="bg-white rounded-2xl p-8 border border-red-100">
+        <div class="text-4xl font-bold text-red-600 mb-2">+55%</div>
+        <p class="text-gray-600 font-semibold mb-2">Patient Engagement Increase</p>
+        <p class="text-sm text-gray-500">Clinics see significant improvement in patient interaction and follow-up rates</p>
+      </div>
+
+      <div class="bg-white rounded-2xl p-8 border border-orange-100">
+        <div class="text-4xl font-bold text-orange-600 mb-2">+50%</div>
+        <p class="text-gray-600 font-semibold mb-2">Operational Efficiency Gain</p>
+        <p class="text-sm text-gray-500">Automate tasks and reduce administrative burden by half</p>
+      </div>
+
+      <div class="bg-white rounded-2xl p-8 border border-purple-100">
+        <div class="text-4xl font-bold text-purple-600 mb-2">40M+</div>
+        <p class="text-gray-600 font-semibold mb-2">Patient Data Processed</p>
+        <p class="text-sm text-gray-500">Secure processing and analysis of over 40 million patient records</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== OUR SCIENCE SECTION ===== -->
+<section id="science" class="py-20 md:py-32 bg-white">
+  <div class="max-w-[1440px] mx-auto px-6 md:px-10">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-light mb-4 tracking-tight">
+        Our <span class="font-semibold">Science</span>
+      </h2>
+      <p class="text-lg text-gray-600">Backed by cutting-edge research and clinical validation</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="group cursor-pointer">
+        <div class="bg-blue-50 rounded-2xl p-8 mb-4 group-hover:bg-blue-100 transition h-32 flex items-center justify-center">
+          <span class="text-5xl">🧪</span>
+        </div>
+        <h3 class="font-semibold text-lg mb-2">Precision Medicine AI Care for Patients</h3>
+        <p class="text-gray-600 text-sm leading-relaxed">Leveraging genomic data and machine learning to provide personalized treatment recommendations</p>
+      </div>
+
+      <div class="group cursor-pointer">
+        <div class="bg-cyan-50 rounded-2xl p-8 mb-4 group-hover:bg-cyan-100 transition h-32 flex items-center justify-center">
+          <span class="text-5xl">📊</span>
+        </div>
+        <h3 class="font-semibold text-lg mb-2">The Impact of Artificial Intelligence on Verified Biomarkers</h3>
+        <p class="text-gray-600 text-sm leading-relaxed">Validation of AI models through clinical biomarker analysis and peer-reviewed research</p>
+      </div>
+
+      <div class="group cursor-pointer">
+        <div class="bg-indigo-50 rounded-2xl p-8 mb-4 group-hover:bg-indigo-100 transition h-32 flex items-center justify-center">
+          <span class="text-5xl">🔬</span>
+        </div>
+        <h3 class="font-semibold text-lg mb-2">Saliva Protein Identification in Biofilm Biochemistry</h3>
+        <p class="text-gray-600 text-sm leading-relaxed">Advanced analysis of biomarkers and protein patterns for improved diagnostics</p>
+      </div>
+
+      <div class="group cursor-pointer">
+        <div class="bg-teal-50 rounded-2xl p-8 mb-4 group-hover:bg-teal-100 transition h-32 flex items-center justify-center">
+          <span class="text-5xl">🧬</span>
+        </div>
+        <h3 class="font-semibold text-lg mb-2">Medicine Nanotechnology for Improved Health Outcomes</h3>
+        <p class="text-gray-600 text-sm leading-relaxed">Integration of nanotechnology advances in clinical applications and drug delivery</p>
+      </div>
+
+      <div class="group cursor-pointer">
+        <div class="bg-blue-50 rounded-2xl p-8 mb-4 group-hover:bg-blue-100 transition h-32 flex items-center justify-center">
+          <span class="text-5xl">❤️</span>
+        </div>
+        <h3 class="font-semibold text-lg mb-2">New Horizon Monitoring Continuous Patient Clinical</h3>
+        <p class="text-gray-600 text-sm leading-relaxed">Real-time patient monitoring and continuous clinical assessment technologies</p>
+      </div>
+
+      <div class="group cursor-pointer">
+        <div class="bg-violet-50 rounded-2xl p-8 mb-4 group-hover:bg-violet-100 transition h-32 flex items-center justify-center">
+          <span class="text-5xl">📈</span>
+        </div>
+        <h3 class="font-semibold text-lg mb-2">Objectivant Predictive Benefits Identifying Risk Analysis</h3>
+        <p class="text-gray-600 text-sm leading-relaxed">Predictive analytics for risk assessment and prevention strategies</p>
+      </div>
+    </div>
+
+    <div class="text-center mt-12">
+      <button class="px-6 py-3 bg-[#2563EB] hover:bg-blue-700 text-white font-semibold rounded-lg transition">
+        View all research
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STATISTICS SECTION ===== -->
+<section class="py-20 md:py-32 bg-slate-900 text-white">
+  <div class="max-w-[1440px] mx-auto px-6 md:px-10">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+      <div>
+        <div class="text-5xl md:text-6xl font-bold text-cyan-400 mb-2">~65%</div>
+        <p class="text-lg text-gray-300">of 65 Academic Medical Centers utilize our precision AI platform</p>
+      </div>
+
+      <div>
+        <div class="text-5xl md:text-6xl font-bold text-cyan-400 mb-2">50%+</div>
+        <p class="text-lg text-gray-300">of Automation in composites improves operational efficiency</p>
+      </div>
+
+      <div>
+        <div class="text-5xl md:text-6xl font-bold text-cyan-400 mb-2">40,000,000+</div>
+        <p class="text-lg text-gray-300">Patient interactions processed securely every year</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== NEWS & PRESS SECTION ===== -->
+<section class="py-20 md:py-32 bg-white">
+  <div class="max-w-[1440px] mx-auto px-6 md:px-10">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-light mb-4 tracking-tight">
+        Latest <span class="font-semibold">News & Press</span>
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <article class="bg-gray-50 rounded-2xl overflow-hidden hover:shadow-lg transition group">
+        <div class="bg-gradient-to-br from-blue-500 to-cyan-400 h-40 flex items-center justify-center group-hover:scale-105 transition duration-300">
+          <span class="text-6xl">📰</span>
+        </div>
+        <div class="p-6">
+          <p class="text-sm text-gray-500 mb-2">May 2026</p>
+          <h3 class="font-semibold text-lg mb-2">DUNI Launches Genomics AI Suite for Academic Medical Centers</h3>
+          <p class="text-gray-600 text-sm mb-4">Leading precision medicine platform expands genomic analysis capabilities</p>
+          <a href="#" class="text-[#2563EB] text-sm font-semibold hover:underline">Read More →</a>
+        </div>
+      </article>
+
+      <article class="bg-gray-50 rounded-2xl overflow-hidden hover:shadow-lg transition group">
+        <div class="bg-gradient-to-br from-indigo-500 to-blue-400 h-40 flex items-center justify-center group-hover:scale-105 transition duration-300">
+          <span class="text-6xl">📊</span>
+        </div>
+        <div class="p-6">
+          <p class="text-sm text-gray-500 mb-2">April 2026</p>
+          <h3 class="font-semibold text-lg mb-2">Precision Medicine AI Automation Reduces Clinical Errors by 40%</h3>
+          <p class="text-gray-600 text-sm mb-4">New study validates efficiency gains across multiple clinical specialties</p>
+          <a href="#" class="text-[#2563EB] text-sm font-semibold hover:underline">Read More →</a>
+        </div>
+      </article>
+
+      <article class="bg-gray-50 rounded-2xl overflow-hidden hover:shadow-lg transition group">
+        <div class="bg-gradient-to-br from-cyan-500 to-teal-400 h-40 flex items-center justify-center group-hover:scale-105 transition duration-300">
+          <span class="text-6xl">🏆</span>
+        </div>
+        <div class="p-6">
+          <p class="text-sm text-gray-500 mb-2">March 2026</p>
+          <h3 class="font-semibold text-lg mb-2">DUNI Recognized as Top HealthTech Innovation Award Winner</h3>
+          <p class="text-gray-600 text-sm mb-4">Leading health innovation organizations acknowledge platform impact</p>
+          <a href="#" class="text-[#2563EB] text-sm font-semibold hover:underline">Read More →</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="bg-slate-900 text-white py-16 border-t border-white/10">
+  <div class="max-w-[1440px] mx-auto px-6 md:px-10">
+    <div class="flex gap-2 text-2xl font-bold mb-12">
+      <span class="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">DUNI</span>
+      <span class="text-gray-400">+</span>
+      <span>Precision Medicine AI</span>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+      <div>
+        <h5 class="text-xs font-bold tracking-wider text-gray-400 uppercase mb-5">Doctors</h5>
+        <ul class="space-y-2">
+          <li><a href="#" class="text-gray-400 hover:text-white text-sm transition">General Medicine</a></li>
+          <li><a href="#" class="text-gray-400 hover:text-white text-sm transition">Cardiology</a></li>
+          <li><a href="#" class="text-gray-400 hover:text-white text-sm transition">Oncology</a></li>
+          <li><a href="#" class="text-gray-400 hover:text-white text-sm transition">Surgery</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-xs font-bold tracking-wider text-gray-400 uppercase mb-5">Clinics</h5>
+        <ul class="space-y-2">
+          <li><a href="#" class="text-gray-400 hover:text-white text-sm transition">Operations</a></li>
+          <li><a href="#" class="text-gray-400 hover:text-white text-sm transition">Growth</a></li>
+          <li><a href="#" class="text-gray-400 hover:text-white text-sm transition">Marketing</a></li>
+          <li><a href="#" class="text-gray-400 hover:text-white text-sm transition">Analytics</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-xs font-bold tracking-wider text-gray-400 uppercase mb-5">Patients</h5>
+        <ul class="space-y-2">
+          <li><a href="#" class="text-gray-400 hover:text-white text-sm transition">Health Info</a></li>
+          <li><a href="#" class="text-gray-400 hover:text-white text-sm transition">Services</a></li>
+          <li><a href="#" class="text-gray-400 hover:text-white text-sm transition">Support</a></li>
+          <li><a href="#" class="text-gray-400 hover:text-white text-sm transition">Portal</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-xs font-bold tracking-wider text-gray-400 uppercase mb-5">Company</h5>
+        <ul class="space-y-2">
+          <li><a href="#" class="text-gray-400 hover:text-white text-sm transition">About</a></li>
+          <li><a href="#" class="text-gray-400 hover:text-white text-sm transition">Careers</a></li>
+          <li><a href="#" class="text-gray-400 hover:text-white text-sm transition">Blog</a></li>
+          <li><a href="#" class="text-gray-400 hover:text-white text-sm transition">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400">
+      <p>© 2026 DUNI · Precision Medicine AI. All rights reserved.</p>
+      <div class="flex gap-6">
+        <a href="#" class="hover:text-white transition">Privacy</a>
+        <a href="#" class="hover:text-white transition">Terms</a>
+        <a href="#" class="hover:text-white transition">Contact</a>
+        <a href="#" class="hover:text-white transition">Instagram</a>
       </div>
     </div>
   </div>
@@ -1273,6 +519,44 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-<script src="main.js"></script>
+<script>
+  // Smooth scroll for navigation links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+
+  // Navbar background on scroll
+  window.addEventListener('scroll', () => {
+    const header = document.querySelector('header');
+    if (window.scrollY > 10) {
+      header.classList.add('shadow-md');
+    } else {
+      header.classList.remove('shadow-md');
+    }
+  });
+
+  // Fade in animations on scroll
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.utils.toArray('.reveal').forEach(element => {
+    gsap.from(element, {
+      opacity: 0,
+      y: 30,
+      duration: 0.8,
+      scrollTrigger: {
+        trigger: element,
+        start: 'top 80%',
+        once: true
+      }
+    });
+  });
+</script>
+
 </body>
 </html>
